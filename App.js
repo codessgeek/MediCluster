@@ -6,23 +6,44 @@
  * @flow strict-local
  */
 
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { globalStyles as gstyles } from './assets/styles/globleStyles';
 import {
   StyleSheet,
   Text,
   View,
 } from 'react-native';
+import NumBox from './components/NumBox';
 
 
 const App = () => {
 
+  const [numlist, setNumlist] = useState([]);
+
+  const generatelist = (last) => {
+    let arr = [];
+    for (let i = 1; i <= last; i++) {
+      arr.push(i);
+    }
+    setNumlist(arr);
+  }
+
+  useEffect(() => {
+    return generatelist(5);
+
+  }, []);
+
+  console.log(numlist);
+
   return (
-    <View >
-      <Text style={gstyles.title}>globle styles</Text>
-      <Text style={gstyles.nofont}>globle styles</Text>
-      <Text style={styles.local}>local hile</Text>
-    </View>
+    <>
+      <View >
+        <Text style={gstyles.title}>globle styles</Text>
+        <Text style={gstyles.nofont}>globle styles</Text>
+        <Text style={styles.local}>local hile</Text>
+      </View>
+      <NumBox list={numlist} />
+    </>
   );
 };
 
