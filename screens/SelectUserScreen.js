@@ -1,6 +1,7 @@
 
 import React from "react";
 import { View, Text, Button } from 'react-native';
+import PushNotification, { Importance } from 'react-native-push-notification';
 
 export default function SelectUser({ navigation }) {
     return (
@@ -8,7 +9,16 @@ export default function SelectUser({ navigation }) {
             <Text>SelectUser</Text>
             <Button
                 title="Go Back"
-                onPress={() => navigation.goBack()}
+                onPress={() => {
+                    PushNotification.localNotificationSchedule({
+                        channelId: 'channel-id',
+                        title: 'Countdown',
+                        message: 'now go to home page',
+                        date: new Date(Date.now() + 3 * 1000),
+                        allowWhileIdle: true
+                    });
+                    return navigation.goBack()
+                }}
             />
         </View>
     );
