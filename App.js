@@ -6,107 +6,115 @@
  * @flow strict-local
  */
 
+// import modules
 import React from 'react';
-import type {Node} from 'react';
-import {
-  SafeAreaView,
-  ScrollView,
-  StatusBar,
-  StyleSheet,
-  Text,
-  useColorScheme,
-  View,
-} from 'react-native';
+import { NavigationContainer } from '@react-navigation/native';
+import { createNativeStackNavigator } from '@react-navigation/native-stack';
 
-import {
-  Colors,
-  DebugInstructions,
-  Header,
-  LearnMoreLinks,
-  ReloadInstructions,
-} from 'react-native/Libraries/NewAppScreen';
+// import custom components
 
-const Section = ({children, title}): Node => {
-  const isDarkMode = useColorScheme() === 'dark';
+// import screens
+import HomeScreen from './screens/HomeScreen';
+
+import ScheduleScreen from './screens/ScheduleScreen';
+import ScheduleGenScreen from './screens/ScheduleGenScreen'
+
+import NotesScreen from './screens/NotesScreen';
+import NotesByFolderScreen from './screens/NotesByFolderScreen'
+import NotesGenScreen from './screens/NotesGenScreen'
+
+import ImageContainerScreen from './screens/ImageContainerScreen';
+import ImageShelfScreen from './screens/ImageShelfScreen'
+import ShowImageScreen from './screens/ShowImageScreen'
+
+import DoctorContactGenScreen from './screens/DoctorContactGenScreen'
+import DoctorContactScreen from './screens/DoctorContactScreen'
+
+import SelectUserScreen from './screens/SelectUserScreen'
+import UserGenScreen from './screens/UserGenScreen'
+
+// import styles
+
+
+const Stack = createNativeStackNavigator();
+
+const App = () => {
   return (
-    <View style={styles.sectionContainer}>
-      <Text
-        style={[
-          styles.sectionTitle,
-          {
-            color: isDarkMode ? Colors.white : Colors.black,
-          },
-        ]}>
-        {title}
-      </Text>
-      <Text
-        style={[
-          styles.sectionDescription,
-          {
-            color: isDarkMode ? Colors.light : Colors.dark,
-          },
-        ]}>
-        {children}
-      </Text>
-    </View>
+    <>
+      <NavigationContainer>
+        <Stack.Navigator initialRouteName="Home">
+          <Stack.Screen
+            name="Home"
+            component={HomeScreen}
+            options={{ title: 'Medicluster' }}
+          />
+          <Stack.Screen
+            name="Schedule"
+            component={ScheduleScreen}
+            options={{ title: 'My Schedules' }}
+          />
+          <Stack.Screen
+            name="ScheduleGen"
+            component={ScheduleGenScreen}
+            options={{ title: 'Add Schedules' }}
+          />
+
+          <Stack.Screen
+            name="Notes"
+            component={NotesScreen}
+            options={{ title: 'My Notes' }}
+          />
+          <Stack.Screen
+            name="NotesGen"
+            component={NotesGenScreen}
+            options={{ title: 'Add Notes' }}
+          />
+          <Stack.Screen
+            name="NotesByFolder"
+            component={NotesByFolderScreen}
+            options={{ title: 'My Notes' }}
+          />
+          <Stack.Screen
+            name="ImageContainer"
+            component={ImageContainerScreen}
+            options={{ title: 'Gallary' }}
+          />
+          <Stack.Screen
+            name="ImageShelf"
+            component={ImageShelfScreen}
+            options={{ title: 'Gallary' }}
+          />
+          <Stack.Screen
+            name="showImage"
+            component={ShowImageScreen}
+            options={{ title: 'Gallary' }}
+          />
+          <Stack.Screen
+            name="SelectUser"
+            component={SelectUserScreen}
+            options={{ title: 'users' }}
+          />
+          <Stack.Screen
+            name="UserGen"
+            component={UserGenScreen}
+            options={{ title: 'Create User' }}
+          />
+          <Stack.Screen
+            name="DoctorContactGen"
+            component={DoctorContactGenScreen}
+            options={{ title: 'Add Contect' }}
+          />
+          <Stack.Screen
+            name="DoctorContact"
+            component={DoctorContactScreen}
+            options={{ title: 'Doctor Contect' }}
+          />
+        </Stack.Navigator>
+      </NavigationContainer>
+    </>
   );
 };
-
-const App: () => Node = () => {
-  const isDarkMode = useColorScheme() === 'dark';
-
-  const backgroundStyle = {
-    backgroundColor: isDarkMode ? Colors.darker : Colors.lighter,
-  };
-
-  return (
-    <SafeAreaView style={backgroundStyle}>
-      <StatusBar barStyle={isDarkMode ? 'light-content' : 'dark-content'} />
-      <ScrollView
-        contentInsetAdjustmentBehavior="automatic"
-        style={backgroundStyle}>
-        <Header />
-        <View
-          style={{
-            backgroundColor: isDarkMode ? Colors.black : Colors.white,
-          }}>
-          <Section title="Step One">
-            Edit <Text style={styles.highlight}>App.js</Text> to change this
-            screen and then come back to see your edits.
-          </Section>
-          <Section title="See Your Changes">
-            <ReloadInstructions />
-          </Section>
-          <Section title="Debug">
-            <DebugInstructions />
-          </Section>
-          <Section title="Learn More">
-            Read the docs to discover what to do next:
-          </Section>
-          <LearnMoreLinks />
-        </View>
-      </ScrollView>
-    </SafeAreaView>
-  );
-};
-
-const styles = StyleSheet.create({
-  sectionContainer: {
-    marginTop: 32,
-    paddingHorizontal: 24,
-  },
-  sectionTitle: {
-    fontSize: 24,
-    fontWeight: '600',
-  },
-  sectionDescription: {
-    marginTop: 8,
-    fontSize: 18,
-    fontWeight: '400',
-  },
-  highlight: {
-    fontWeight: '700',
-  },
-});
 
 export default App;
+
+
