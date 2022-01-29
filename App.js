@@ -6,52 +6,115 @@
  * @flow strict-local
  */
 
-import React, { useEffect, useState } from 'react';
-import { globalStyles as gstyles } from './assets/styles/globleStyles';
-import {
-  StyleSheet,
-  Text,
-  View,
-} from 'react-native';
-import NumBox from './components/NumBox';
+// import modules
+import React from 'react';
+import { NavigationContainer } from '@react-navigation/native';
+import { createNativeStackNavigator } from '@react-navigation/native-stack';
 
+// import custom components
+
+// import screens
+import HomeScreen from './screens/HomeScreen';
+
+import ScheduleScreen from './screens/ScheduleScreen';
+import ScheduleGenScreen from './screens/ScheduleGenScreen'
+
+import NotesScreen from './screens/NotesScreen';
+import NotesByFolderScreen from './screens/NotesByFolderScreen'
+import NotesGenScreen from './screens/NotesGenScreen'
+
+import ImageContainerScreen from './screens/ImageContainerScreen';
+import ImageShelfScreen from './screens/ImageShelfScreen'
+import ShowImageScreen from './screens/ShowImageScreen'
+
+import DoctorContactGenScreen from './screens/DoctorContactGenScreen'
+import DoctorContactScreen from './screens/DoctorContactScreen'
+
+import SelectUserScreen from './screens/SelectUserScreen'
+import UserGenScreen from './screens/UserGenScreen'
+
+// import styles
+
+
+const Stack = createNativeStackNavigator();
 
 const App = () => {
-
-  const [numlist, setNumlist] = useState([]);
-
-  const generatelist = (last) => {
-    let arr = [];
-    for (let i = 1; i <= last; i++) {
-      arr.push(i);
-    }
-    setNumlist(arr);
-  }
-
-  useEffect(() => {
-    return generatelist(5);
-
-  }, []);
-
-  console.log(numlist);
-
   return (
     <>
-      <View >
-        <Text style={gstyles.title}>globle styles</Text>
-        <Text style={gstyles.nofont}>globle styles</Text>
-        <Text style={styles.local}>local hile</Text>
-      </View>
-      <NumBox list={numlist} />
+      <NavigationContainer>
+        <Stack.Navigator initialRouteName="Home">
+          <Stack.Screen
+            name="Home"
+            component={HomeScreen}
+            options={{ title: 'Medicluster' }}
+          />
+          <Stack.Screen
+            name="Schedule"
+            component={ScheduleScreen}
+            options={{ title: 'My Schedules' }}
+          />
+          <Stack.Screen
+            name="ScheduleGen"
+            component={ScheduleGenScreen}
+            options={{ title: 'Add Schedules' }}
+          />
+
+          <Stack.Screen
+            name="Notes"
+            component={NotesScreen}
+            options={{ title: 'My Notes' }}
+          />
+          <Stack.Screen
+            name="NotesGen"
+            component={NotesGenScreen}
+            options={{ title: 'Add Notes' }}
+          />
+          <Stack.Screen
+            name="NotesByFolder"
+            component={NotesByFolderScreen}
+            options={{ title: 'My Notes' }}
+          />
+          <Stack.Screen
+            name="ImageContainer"
+            component={ImageContainerScreen}
+            options={{ title: 'Gallary' }}
+          />
+          <Stack.Screen
+            name="ImageShelf"
+            component={ImageShelfScreen}
+            options={{ title: 'Gallary' }}
+          />
+          <Stack.Screen
+            name="showImage"
+            component={ShowImageScreen}
+            options={{ title: 'Gallary' }}
+          />
+          <Stack.Screen
+            name="SelectUser"
+            component={SelectUserScreen}
+            options={{ title: 'users' }}
+          />
+          <Stack.Screen
+            name="UserGen"
+            component={UserGenScreen}
+            options={{ title: 'Create User' }}
+          />
+          <Stack.Screen
+            name="DoctorContactGen"
+            component={DoctorContactGenScreen}
+            options={{ title: 'Add Contect' }}
+          />
+          <Stack.Screen
+            name="DoctorContact"
+            component={DoctorContactScreen}
+            options={{ title: 'Doctor Contect' }}
+          />
+        </Stack.Navigator>
+      </NavigationContainer>
     </>
   );
 };
 
-const styles = StyleSheet.create({
-  local: {
-    color: 'green',
-    fontSize: 16,
-  },
-});
-
 export default App;
+
+
