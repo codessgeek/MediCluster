@@ -7,7 +7,8 @@
  */
 
 import React from 'react';
-import type {Node} from 'react';
+import { globalStyles as gstyles } from './assets/styles/globleStyles';
+import type { Node } from 'react';
 import {
   SafeAreaView,
   ScrollView,
@@ -26,7 +27,7 @@ import {
   ReloadInstructions,
 } from 'react-native/Libraries/NewAppScreen';
 
-const Section = ({children, title}): Node => {
+const Section = ({ children, title }): Node => {
   const isDarkMode = useColorScheme() === 'dark';
   return (
     <View style={styles.sectionContainer}>
@@ -80,10 +81,14 @@ const App: () => Node = () => {
           <Section title="Debug">
             <DebugInstructions />
           </Section>
-          <Section title="Learn More">
+          <Section title="Learn More" >
             Read the docs to discover what to do next:
           </Section>
           <LearnMoreLinks />
+        </View>
+        <View >
+          <Text style={gstyles.title}>globle styles</Text>
+          <Text style={gstyles.nofont}>globle styles</Text>
         </View>
       </ScrollView>
     </SafeAreaView>
