@@ -25,6 +25,9 @@ import DoctorContactScreen from './screens/DoctorContactScreen'
 import SelectUserScreen from './screens/SelectUserScreen'
 import UserGenScreen from './screens/UserGenScreen'
 
+import OtherAppsScreen from './screens/OtherAppsScreen'
+import AboutUsScreen from './screens/AboutUsScreen';
+
 // import styles
 
 
@@ -34,7 +37,7 @@ const App = () => {
   return (
     <>
       <NavigationContainer>
-        <Stack.Navigator initialRouteName="Home">
+        <Stack.Navigator initialRouteName="AboutUs">
           <Stack.Screen
             name="Home"
             component={HomeScreen}
@@ -100,6 +103,16 @@ const App = () => {
             name="DoctorContact"
             component={DoctorContactScreen}
             options={{ title: 'Doctor Contect' }}
+          />
+          <Stack.Screen
+            name="AboutUs"
+            component={AboutUsScreen}
+            options={{ title: 'About us' }}
+          />
+          <Stack.Screen
+            name="OtherApps"
+            component={OtherAppsScreen}
+            options={{ title: 'Over apps' }}
           />
         </Stack.Navigator>
       </NavigationContainer>
