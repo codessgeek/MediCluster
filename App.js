@@ -3,28 +3,34 @@ import React from 'react';
 import { NavigationContainer } from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 
-// import custom components
 
-// import screens
+
+// home screen
 import HomeScreen from './screens/HomeScreen';
 
+// schedule screen
 import ScheduleScreen from './screens/ScheduleScreen';
 import ScheduleGenScreen from './screens/ScheduleGenScreen'
 
+// notes screen
 import NotesScreen from './screens/NotesScreen';
 import NotesByFolderScreen from './screens/NotesByFolderScreen'
 import NotesGenScreen from './screens/NotesGenScreen'
 
+// image screen
 import ImageContainerScreen from './screens/ImageContainerScreen';
 import ImageShelfScreen from './screens/ImageShelfScreen'
 import ShowImageScreen from './screens/ShowImageScreen'
 
+// doctor screen
 import DoctorContactGenScreen from './screens/DoctorContactGenScreen'
 import DoctorContactScreen from './screens/DoctorContactScreen'
 
-import SelectUserScreen from './screens/SelectUserScreen'
+// user screen
+import DisplayAllUser from './screens/DisplayAllUser'
 import UserGenScreen from './screens/UserGenScreen'
 
+// otherapps, aboutus screen
 import OtherAppsScreen from './screens/OtherAppsScreen'
 import AboutUsScreen from './screens/AboutUsScreen';
 
@@ -37,12 +43,16 @@ const App = () => {
   return (
     <>
       <NavigationContainer>
-        <Stack.Navigator initialRouteName="AboutUs">
+        <Stack.Navigator initialRouteName="DisplayAllUser">
+
+          {/* homescreen */}
           <Stack.Screen
             name="Home"
             component={HomeScreen}
             options={{ title: 'Medicluster' }}
           />
+
+          {/* Schedule screen */}
           <Stack.Screen
             name="Schedule"
             component={ScheduleScreen}
@@ -54,6 +64,7 @@ const App = () => {
             options={{ title: 'Add Schedules' }}
           />
 
+          {/* notes screen */}
           <Stack.Screen
             name="Notes"
             component={NotesScreen}
@@ -69,6 +80,8 @@ const App = () => {
             component={NotesByFolderScreen}
             options={{ title: 'My Notes' }}
           />
+
+          {/* image screen */}
           <Stack.Screen
             name="ImageContainer"
             component={ImageContainerScreen}
@@ -80,20 +93,24 @@ const App = () => {
             options={{ title: 'Gallary' }}
           />
           <Stack.Screen
-            name="showImage"
+            name="ShowImage"
             component={ShowImageScreen}
             options={{ title: 'Gallary' }}
           />
+
+          {/* user screens */}
           <Stack.Screen
-            name="SelectUser"
-            component={SelectUserScreen}
-            options={{ title: 'users' }}
+            name="DisplayAllUser"
+            component={DisplayAllUser}
+            options={{ title: 'happies' }}
           />
           <Stack.Screen
             name="UserGen"
             component={UserGenScreen}
             options={{ title: 'Create User' }}
           />
+
+          {/* Doctor screen */}
           <Stack.Screen
             name="DoctorContactGen"
             component={DoctorContactGenScreen}
@@ -104,6 +121,8 @@ const App = () => {
             component={DoctorContactScreen}
             options={{ title: 'Doctor Contect' }}
           />
+
+          {/* about us and user screen */}
           <Stack.Screen
             name="AboutUs"
             component={AboutUsScreen}
@@ -114,6 +133,7 @@ const App = () => {
             component={OtherAppsScreen}
             options={{ title: 'Over apps' }}
           />
+
         </Stack.Navigator>
       </NavigationContainer>
     </>
