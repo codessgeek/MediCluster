@@ -4,7 +4,7 @@ import Gstyles from '../../assets/styles/globleStyles';
 
 const TextField = (prop) => {
     console.log(prop);
-    const { title, pholder, cap } = prop;
+    const { title, pholder, corr } = prop;
     return (
         <View style={Gstyles.boxui}>
             <Text style={Gstyles.boxtitle}>{title}:</Text>
@@ -12,6 +12,8 @@ const TextField = (prop) => {
                 style={styles.iftfield}
                 placeholder={pholder}
                 placeholderTextColor="rgba(114,113,113,1)"
+                autoCapitalize='words'
+                autoCorrect={corr && true}
             />
         </View>
     )

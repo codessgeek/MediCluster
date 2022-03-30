@@ -9,6 +9,9 @@ const Mobilenumbercom = ({ last }) => {
                 placeholder=""
                 placeholderTextColor="rgba(114,113,113,1)"
                 style={styles.IFformobilenumber}
+                keyboardType={'phone-pad'}
+                dataDetectorTypes="phoneNumber"
+                autoFocus={true}
             ></TextInput>
             <TouchableOpacity style={styles.button}>
                 <EntypoIcon

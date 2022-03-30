@@ -31,7 +31,7 @@ function Doctorgenscreen(props) {
                     </View>
 
                     <TextField title={'Name'} pholder={'dr. bhatnagar'} />
-                    <TextField title={'Discription'} pholder={'Eyes specialist'} />
+                    <TextField title={'Discription'} pholder={'Eyes specialist'} corr />
 
                     <View style={Gstyles.boxui}>
                         <Text style={Gstyles.boxtitle}>Mobile no:</Text>
