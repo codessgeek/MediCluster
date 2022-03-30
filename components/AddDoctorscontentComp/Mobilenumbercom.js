@@ -1,17 +1,22 @@
+// core imports
 import React from 'react'
 import { TextInput, View, StyleSheet, TouchableOpacity } from 'react-native'
+
+// icon imports
 import EntypoIcon from "react-native-vector-icons/Entypo";
+
+// style imports
+import Color from '../../assets/color/Colors';
 
 const Mobilenumbercom = ({ last }) => {
     return (
         <View style={styles.mobileWithIconRow}>
             <TextInput
                 placeholder=""
-                placeholderTextColor="rgba(114,113,113,1)"
+                placeholderTextColor='white'
                 style={styles.IFformobilenumber}
                 keyboardType={'phone-pad'}
                 dataDetectorTypes="phoneNumber"
-                autoFocus={true}
             ></TextInput>
             <TouchableOpacity style={styles.button}>
                 <EntypoIcon
@@ -31,16 +36,16 @@ const styles = StyleSheet.create({
         marginVertical: 2,
     },
     icon: {
-        color: "rgba(34,34,34,1)",
+        color: Color.secondary_icon,
         fontSize: 35,
         marginLeft: 5
     },
     IFformobilenumber: {
         fontFamily: "roboto-regular",
-        color: "#121212",
+        color: Color.primary_icon,
         height: 36,
         borderWidth: 1,
-        borderColor: "rgba(0,0,0,0.05)",
+        borderColor: Color.secondary_border,
         borderRadius: 5,
         marginTop: 1,
         flexGrow: 1

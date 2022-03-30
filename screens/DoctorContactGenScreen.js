@@ -1,3 +1,4 @@
+// core imports
 import React, { Component } from "react";
 import {
     StyleSheet,
@@ -6,13 +7,20 @@ import {
     Text,
     TouchableOpacity
 } from "react-native";
+
+// icons
 import MaterialCommunityIconsIcon from "react-native-vector-icons/MaterialCommunityIcons";
 import EntypoIcon from "react-native-vector-icons/Entypo";
 import FeatherIcon from "react-native-vector-icons/Feather";
+
+//components
 import TextField from "../components/AddDoctorscontentComp/TextField";
 import Mobilenumbercom from "../components/AddDoctorscontentComp/Mobilenumbercom";
-import Gstyles from "../assets/styles/globleStyles";
 import Controlers from "../components/Controlers";
+
+//styles
+import Gstyles from "../assets/styles/globleStyles";
+import Color from "../assets/color/Colors";
 
 function Doctorgenscreen(props) {
     return (
@@ -44,18 +52,18 @@ function Doctorgenscreen(props) {
                     <View style={Gstyles.boxui}>
                         <Text style={Gstyles.boxtitle}>Greeting card:</Text>
                         <View style={styles.rect3Row}>
-                            <View style={styles.rect3}></View>
-                            <View style={styles.group}>
+                            <View style={styles.imagelocationbg}></View>
+                            <View style={styles.uploadbtngroup}>
                                 <TouchableOpacity style={styles.button}>
                                     <FeatherIcon
                                         name="upload"
-                                        style={styles.icon3}
+                                        style={styles.shareanduploadicon}
                                     ></FeatherIcon>
                                 </TouchableOpacity>
                             </View>
-                            <View style={styles.group}>
+                            <View style={styles.uploadbtngroup}>
                                 <TouchableOpacity style={styles.button}>
-                                    <EntypoIcon name="share" style={styles.icon3}></EntypoIcon>
+                                    <EntypoIcon name="share" style={styles.shareanduploadicon}></EntypoIcon>
                                 </TouchableOpacity>
                             </View>
                         </View>
@@ -78,32 +86,24 @@ const styles = StyleSheet.create({
         width: 180,
         justifyContent: 'center',
         alignItems: 'center',
-        backgroundColor: 'rgba(0, 0, 0, .3)',
+        backgroundColor: Color.primary_iconbg,
         borderRadius: 95,
     },
     homeplusicn: {
-        color: "rgba(128,128,128,1)",
+        color: Color.primary_icon,
         fontSize: 80
-    },
-
-    discription: {
-        fontFamily: "roboto-700",
-        color: "#121212",
-        textAlign: "left",
-        marginTop: 6,
-        marginLeft: 11
     },
 
     doctorsMobileNoComponent: {
         flex: 1,
     },
 
-    rect3: {
+    imagelocationbg: {
         height: 30,
-        backgroundColor: "rgba(183,183,183,1)",
+        backgroundColor: Color.bg_1,
         flexGrow: 1
     },
-    group: {
+    uploadbtngroup: {
         minWidth: 30,
         height: 30,
         marginLeft: 5
@@ -111,10 +111,10 @@ const styles = StyleSheet.create({
     button: {
         minWidth: 40,
         minHeight: 30,
-        backgroundColor: "rgba(184,181,181,1)"
+        backgroundColor: Color.bg_1
     },
-    icon3: {
-        color: "rgba(59,59,59,1)",
+    shareanduploadicon: {
+        color: Color.primary_icon,
         fontSize: 25,
         height: 25,
         width: 25,

@@ -1,5 +1,6 @@
 import React from "react";
 import { StyleSheet } from "react-native";
+import Color from "../color/Colors";
 
 export const globalStyles = StyleSheet.create({
     container: {
@@ -9,14 +10,14 @@ export const globalStyles = StyleSheet.create({
         marginHorizontal: 10,
         marginVertical: 5,
         padding: 7,
-        backgroundColor: "#E6E6E6",
+        backgroundColor: Color.secondary_bg,
         borderWidth: 1,
-        borderColor: "#000000",
+        borderColor: Color.primary_border,
         borderRadius: 15
     },
     boxtitle: {
         fontFamily: "roboto-700",
-        color: "#121212",
+        color: Color.primary_text,
         textAlign: "left",
         marginHorizontal: 5,
         fontSize: 18
