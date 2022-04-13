@@ -4,7 +4,8 @@ import Color from "../color/Colors";
 
 export const globalStyles = StyleSheet.create({
     container: {
-        flex: 1
+        flex: 1,
+        padding: 5
     },
     boxui: {
         marginHorizontal: 10,

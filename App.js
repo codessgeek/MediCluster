@@ -37,7 +37,7 @@ const App = () => {
   return (
     <>
       <NavigationContainer>
-        <Stack.Navigator initialRouteName="AboutUs">
+        <Stack.Navigator initialRouteName="Schedule">
           <Stack.Screen
             name="Home"
             component={HomeScreen}
