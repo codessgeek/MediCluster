@@ -1,5 +1,5 @@
 // core imports
-import React, { Component } from "react";
+import React from "react";
 import {
     StyleSheet,
     View,
@@ -26,7 +26,7 @@ function Doctorgenscreen(props) {
     return (
         <View style={Gstyles.container}>
             <Controlers del />
-            <View style={Gstyles.scrollArea}>
+            <View style={[Gstyles.scrollArea, { flex: 1 }]}>
                 <ScrollView
                     contentContainerStyle={Gstyles.scrollArea_contentContainerStyle}>
                     <View style={styles.doctorsIcon}>
