@@ -12,7 +12,7 @@ import FilterCom from "../components/ScheduleScreenComp/FilterCom";
 import WeekComp from "../components/ScheduleScreenComp/WeekComp";
 
 function Schduleshow(props) {
-    const [showfilter, setShowfilter] = useState(0);
+    const [showfilter, setShowfilter] = useState(-1);
     return (
         <View style={Gstyle.container}>
             <View style={styles.addschduleiconStack}>
