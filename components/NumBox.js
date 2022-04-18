@@ -3,16 +3,7 @@ import { StyleSheet, View, Text } from "react-native";
 
 const NumBox = ({ list }) => {
     return (
-        <View style={styles.container}>
-            {list.map(item => {
-                console.log(item);
-                return (
-                    <Text style={styles.maintext}>
-                        {item}
-                    </Text>
-                )
-            })}
-        </View>)
+        <View></View>)
 };
 
 
