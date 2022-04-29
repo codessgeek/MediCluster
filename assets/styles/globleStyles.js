@@ -4,7 +4,8 @@ import Color from "../color/Colors";
 
 export const globalStyles = StyleSheet.create({
     container: {
-        flex: 1
+        flex: 1,
+        padding: 5
     },
     boxui: {
         marginHorizontal: 10,
@@ -27,7 +28,9 @@ export const globalStyles = StyleSheet.create({
         flex: 1
     },
     scrollArea_contentContainerStyle: {
+        justifyContent: 'center',
         flexGrow: 1,
+        margin: 5
     },
 });
 

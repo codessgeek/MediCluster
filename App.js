@@ -38,7 +38,6 @@ const App = () => {
     <>
       <NavigationContainer>
         <Stack.Navigator initialRouteName="DoctorContactGen">
-
           <Stack.Screen
             name="Home"
             component={HomeScreen}
