@@ -25,7 +25,7 @@ import Color from "../assets/color/Colors";
 function Doctorgenscreen(props) {
     return (
         <View style={Gstyles.container}>
-            <Controlers del />
+            <Controlers ctrls={[, , 'Done']} />
             <View style={[Gstyles.scrollArea, { flex: 1 }]}>
                 <ScrollView
                     contentContainerStyle={Gstyles.scrollArea_contentContainerStyle}>

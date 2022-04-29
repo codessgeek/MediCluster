@@ -2,22 +2,28 @@ import React from 'react'
 import { View, StyleSheet, Text, TouchableOpacity } from 'react-native'
 
 const Controlers = (prop) => {
-    const { done, cancle, del } = prop;
+    const { ctrls } = prop;
     return (
-        <View style={[styles.deleteCancelDoneComponent, !del && { justifyContent: 'flex-end' }]}>
-            {del && (
+        <View style={[styles.deleteCancelDoneComponent, ctrls[0] == null && { justifyContent: 'flex-end' }]}>
+            {ctrls[0] != null && (
                 <TouchableOpacity style={styles.button}>
-                    <Text style={styles.delete}>Delete</Text>
+                    <Text style={styles.delete}>{ctrls[0]}</Text>
                 </TouchableOpacity>
             )}
 
             <View style={styles.donecanclewithsaperator}>
+                {ctrls[1] != null && (
+                    <>
+                        <TouchableOpacity style={styles.button}>
+                            <Text style={styles.cancel}>{ctrls[1]}</Text>
+                        </TouchableOpacity>
+                        <View style={styles.saperator}></View>
+                    </>
+                )}
+
+
                 <TouchableOpacity style={styles.button}>
-                    <Text style={styles.cancel}>Cancel</Text>
-                </TouchableOpacity>
-                <View style={styles.saperator}></View>
-                <TouchableOpacity style={styles.button}>
-                    <Text style={styles.done}>Done</Text>
+                    <Text style={styles.done}>{ctrls[2]}</Text>
                 </TouchableOpacity>
 
             </View>

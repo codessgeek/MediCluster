@@ -9,6 +9,7 @@ import Gstyle from '../assets/styles/globleStyles'
 import Title from "../components/MedicineGenScreenComp/Title";
 import InputComp from "../components/MedicineGenScreenComp/InputComp";
 import SchduleModeSetBox from "../components/MedicineGenScreenComp/SchduleModeSetBox";
+import Controlers from "../components/Controlers"
 
 
 const data = [
@@ -23,6 +24,7 @@ const data = [
 function SchduleGenScreen(props) {
     return (
         <View style={Gstyle.container}>
+            <Controlers ctrls={[, 'Cancel', 'Done']} />
             <View style={Gstyle.scrollArea}>
                 <ScrollView
                     contentContainerStyle={Gstyle.scrollArea_contentContainerStyle}
