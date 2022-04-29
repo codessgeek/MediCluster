@@ -23,7 +23,8 @@ export const globalStyles = StyleSheet.create({
         fontSize: 18
     },
     scrollArea: {
-        justifyContent: 'center'
+        justifyContent: 'center',
+        flex: 1
     },
     scrollArea_contentContainerStyle: {
         flexGrow: 1,
