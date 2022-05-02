@@ -11,7 +11,7 @@ import ModeStatusComp from "../components/ScheduleScreenComp/ModeStatusComp";
 import FilterCom from "../components/ScheduleScreenComp/FilterCom";
 import WeekComp from "../components/ScheduleScreenComp/WeekComp";
 
-function Schduleshow(props) {
+function Schduleshow({ navigation }) {
     const [showfilter, setShowfilter] = useState(-1);
     return (
         <View style={Gstyle.container}>
@@ -31,6 +31,7 @@ function Schduleshow(props) {
                         <FontAwesomeIcon
                             name="calendar-plus-o"
                             style={styles.icon}
+                            onPress={() => navigation.navigate('addSchdule')}
                         ></FontAwesomeIcon>
                     </View>
                 </View>

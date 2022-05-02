@@ -2,11 +2,13 @@ import React from 'react'
 import { View, StyleSheet, Text, TouchableOpacity } from 'react-native'
 
 const Controlers = (prop) => {
-    const { ctrls } = prop;
+    const { ctrls, Pfun, Mfun, Ffun } = prop;
+    console.log(Mfun);
+
     return (
         <View style={[styles.deleteCancelDoneComponent, ctrls[0] == null && { justifyContent: 'flex-end' }]}>
             {ctrls[0] != null && (
-                <TouchableOpacity style={styles.button}>
+                <TouchableOpacity style={styles.button} onPress={Pfun}>
                     <Text style={styles.delete}>{ctrls[0]}</Text>
                 </TouchableOpacity>
             )}
@@ -14,7 +16,7 @@ const Controlers = (prop) => {
             <View style={styles.donecanclewithsaperator}>
                 {ctrls[1] != null && (
                     <>
-                        <TouchableOpacity style={styles.button}>
+                        <TouchableOpacity style={styles.button} onPress={Mfun}>
                             <Text style={styles.cancel}>{ctrls[1]}</Text>
                         </TouchableOpacity>
                         <View style={styles.saperator}></View>
@@ -22,7 +24,7 @@ const Controlers = (prop) => {
                 )}
 
 
-                <TouchableOpacity style={styles.button}>
+                <TouchableOpacity style={styles.button} onPress={Ffun}>
                     <Text style={styles.done}>{ctrls[2]}</Text>
                 </TouchableOpacity>
 

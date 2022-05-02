@@ -21,10 +21,10 @@ const data = [
     { id: 6, time: '08:00 AM' }
 ]
 
-function SchduleGenScreen(props) {
+function SchduleGenScreen({ navigation }) {
     return (
         <View style={Gstyle.container}>
-            <Controlers ctrls={[, 'Cancel', 'Done']} />
+            <Controlers ctrls={[, 'Cancel', 'Done']} Mfun={() => navigation.goBack()} />
             <View style={Gstyle.scrollArea}>
                 <ScrollView
                     contentContainerStyle={Gstyle.scrollArea_contentContainerStyle}

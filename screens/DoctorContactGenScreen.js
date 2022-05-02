@@ -22,10 +22,10 @@ import Controlers from "../components/Controlers";
 import Gstyles from "../assets/styles/globleStyles";
 import Color from "../assets/color/Colors";
 
-function Doctorgenscreen(props) {
+function Doctorgenscreen({ navigation }) {
     return (
         <View style={Gstyles.container}>
-            <Controlers ctrls={[, , 'Done']} />
+            <Controlers ctrls={['Cancle', , 'Done']} />
             <View style={[Gstyles.scrollArea, { flex: 1 }]}>
                 <ScrollView
                     contentContainerStyle={Gstyles.scrollArea_contentContainerStyle}>
