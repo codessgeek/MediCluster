@@ -5,7 +5,7 @@ import { View, Text } from 'react-native';
 export default function NotesByFolderScreen() {
     return (
         <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}>
-            <Text>NotesByFolderScreen</Text>
+            <Text style={{ color: 'blue' }}>NotesByFolderScreen</Text>
         </View>
     );
 }

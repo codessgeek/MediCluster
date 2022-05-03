@@ -11,9 +11,9 @@ export default function BottomTabNav() {
         <NavigationContainer>
             <Tab.Navigator initialRouteName="SchduleStack" screenOptions={{ headerShown: false, tabBarHideOnKeyboard: true }} >
                 <Tab.Screen name="Home" component={HomeScreen} />
-                <Tab.Screen name="SchduleStack" component={ScheduleStackScreens} />
-                <Tab.Screen name="ImagesStack" component={ImagesStackScreens} />
-                <Tab.Screen name="NotesStack" component={NotesStackScreens} />
+                <Tab.Screen name="Schdule" component={ScheduleStackScreens} />
+                <Tab.Screen name="Gallery" component={ImagesStackScreens} />
+                <Tab.Screen name="Notes" component={NotesStackScreens} />
             </Tab.Navigator>
         </NavigationContainer>
     )

@@ -45,7 +45,6 @@ function SchduleGenScreen({ navigation }) {
                             </View>
                         </View>
 
-
                         <View style={styles.detailsbox}>
                             <Title title="Timings" />
 
