@@ -1,9 +1,16 @@
 import _objectWithoutProperties from "@babel/runtime/helpers/objectWithoutProperties";
-import React, { Component } from "react";
+import React, { Component, useState } from "react";
 import { StyleSheet, View, ScrollView, Text } from "react-native";
 
+
 function HomeScreen1() {
-  const name= "Gamee";
+  const [name, setname] = useState("hii");
+  const [per, setper] = useState(10);
+  const [ques, setques] = useState({
+    que: "How was the day dear?",
+    ans: ["Cool", "Good", "Okay"],
+    value: false
+  }); 
   return (
     <View style={styles.container}>
       <View style={styles.scrollArea}>
@@ -13,17 +20,18 @@ function HomeScreen1() {
           <Text style={styles.helloUser}>Hello, {name}</Text>
           <View style={styles.dayMood}>
             <View style={styles.rect2}>
-              <Text style={styles.howWasTheDay}>How was the day dear?</Text>
+              <Text style={styles.howWasTheDay}> {ques.que} </Text>
               <View style={styles.rect3StackRow}>
-                <View style={styles.rect3Stack}>
-                  <Text style={styles.cool}>Cool</Text>
-                </View>
-                <View style={styles.rect3Stack}>
-                  <Text style={styles.cool}>Good</Text>
-                </View>
-                <View style={styles.rect3Stack}>
-                  <Text style={styles.cool}>Okay</Text>
-                </View>
+                {(ques.ans).map(
+                  (item, index) => {
+                    return (
+                      <View style={styles.rect3Stack || (ques.value && styles.row)} key = {index}>
+                        <Text style={styles.cool}> {item} </Text>
+                      </View>
+                    )
+                  }
+                )}
+                
               </View>
             </View>
           </View>
@@ -34,7 +42,7 @@ function HomeScreen1() {
                 <Text style={styles.howWasTheDay1}>
                   Today&#39;s Next Task is....
                 </Text>
-                <Text style={styles.loremIpsum}>5%</Text>
+                <Text style={styles.loremIpsum}>{per}%</Text>
               </View>
               <View style={styles.rect7}>
                 <Text style={styles.night}>Night</Text>
@@ -45,41 +53,6 @@ function HomeScreen1() {
             </View>
           </View>
 
-
-          <View style={styles.quickRememb}>
-            <Text style={styles.quickRememberance}>Quick Rememberance</Text>
-            <View style={styles.rect6}>
-              <View style={styles.howWasTheDay1Row}>
-                <Text style={styles.howWasTheDay1}>
-                  Today&#39;s Next Task is....
-                </Text>
-                <Text style={styles.loremIpsum}>5%</Text>
-              </View>
-              <View style={styles.rect7}>
-                <Text style={styles.night}>Night</Text>
-              </View>
-              <View style={styles.rect8}>
-                <Text style={styles.information}>Information</Text>
-              </View>
-            </View>
-          </View>
-          <View style={styles.quickRememb}>
-            <Text style={styles.quickRememberance}>Quick Rememberance</Text>
-            <View style={styles.rect6}>
-              <View style={styles.howWasTheDay1Row}>
-                <Text style={styles.howWasTheDay1}>
-                  Today&#39;s Next Task is....
-                </Text>
-                <Text style={styles.loremIpsum}>5%</Text>
-              </View>
-              <View style={styles.rect7}>
-                <Text style={styles.night}>Night</Text>
-              </View>
-              <View style={styles.rect8}>
-                <Text style={styles.information}>Information</Text>
-              </View>
-            </View>
-          </View>
         </ScrollView>
       </View>
     </View>
@@ -141,8 +114,8 @@ const styles = StyleSheet.create({
     fontSize: 15
   },
   rect3Stack: {
-    minWidth: 86,
-    height: 26,
+    padding: 3,
+    margin: 1,
     backgroundColor: "white",
   },
   rect4: {
@@ -182,7 +155,10 @@ const styles = StyleSheet.create({
     marginLeft: 21
   },
   rect3StackRow: {
-    height: 25,
+    flexDirection: "column",
+    justifyContent: "space-around"
+  },
+  row: {
     flexDirection: "row",
     justifyContent: "space-around"
   },
@@ -212,7 +188,6 @@ const styles = StyleSheet.create({
     fontFamily: "roboto-regular",
     color: "#121212",
     height: 33,
-    width: 31,
     fontSize: 17,
     marginLeft: 38
   },

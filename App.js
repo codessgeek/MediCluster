@@ -6,7 +6,7 @@ import { createNativeStackNavigator } from '@react-navigation/native-stack';
 // import custom components
 
 // import screens
-import HomeScreen from './screens/HomeScreen';
+import HomeScreen from './screens/HomeScreen1';
 
 import ScheduleScreen from './screens/ScheduleScreen';
 import ScheduleGenScreen from './screens/ScheduleGenScreen'
