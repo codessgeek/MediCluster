@@ -4,13 +4,14 @@ import FontAwesomeIcon from "react-native-vector-icons/FontAwesome";
 import FeatherIcon from "react-native-vector-icons/Feather";
 import MedicineStatus from './MedicineStatus';
 
-const ModeStatusComp = ({ Dayquater }) => {
+const ModeStatusComp = ({ Dayquater, finelItem }) => {
     const Dayquaterbox = {
         0: ['Morning', <FeatherIcon name="sun" style={styles.icon4} />],
         1: ['AFTERNOON', <FontAwesomeIcon name="clock-o" style={styles.icon4} />],
         2: ['EVENING', <FeatherIcon name="cloud" style={styles.icon4} />],
         3: ['NIGHT', <FeatherIcon name="moon" style={styles.icon4} />]
     }
+    console.log("*")
     return (
         <View style={styles.morningstatusgroup}>
             <View style={styles.rect3}>
@@ -20,9 +21,7 @@ const ModeStatusComp = ({ Dayquater }) => {
                         <Text style={styles.morning12}>{Dayquaterbox[Dayquater][0]}</Text>
                     </View>
                 </View>
-                <MedicineStatus mstatus={true} notestatus={3} time={'08:00 AM'} name='Xyz 1mg' />
-                <MedicineStatus mstatus={false} notestatus={2} time={'12:00 AM'} name='Xyz 10mg' />
-
+                {finelItem.map((item, ind) => <MedicineStatus mstatus={item.istaken} key={ind} time={item.time} name={item.name} />)}
             </View>
         </View>
     )
@@ -32,9 +31,13 @@ const styles = StyleSheet.create({
     morningstatusgroup: {
         marginVertical: 5
     },
+    icon4: {
+        fontSize: 30,
+        color: 'gray'
+    },
     rect3: {
         padding: 5,
-        backgroundColor: "rgba(208,208,208,1)"
+        backgroundColor: "rgba(200,200,200,1)"
     },
     group4: {
         flexDirection: "row",
@@ -43,7 +46,8 @@ const styles = StyleSheet.create({
         padding: 3,
         flexDirection: "row",
         flex: 1,
-        backgroundColor: 'pink'
+        backgroundColor: 'pink',
+        alignItems: 'center'
     },
     morning12: {
         fontFamily: "roboto-900",

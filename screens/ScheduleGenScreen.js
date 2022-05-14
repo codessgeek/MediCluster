@@ -1,4 +1,4 @@
-import React, { Component } from "react";
+import React, { Component, useState } from "react";
 import { StyleSheet, View, Text, ScrollView, TextInput } from "react-native";
 import MaterialCommunityIconsIcon from "react-native-vector-icons/MaterialCommunityIcons";
 import IoniconsIcon from "react-native-vector-icons/Ionicons";
@@ -12,6 +12,7 @@ import SchduleModeSetBox from "../components/MedicineGenScreenComp/SchduleModeSe
 import Controlers from "../components/Controlers"
 
 
+
 const data = [
     { id: 1, time: '08:00 AM' },
     { id: 2, time: '08:00 AM' },
@@ -22,6 +23,7 @@ const data = [
 ]
 
 function SchduleGenScreen({ navigation }) {
+
     return (
         <View style={Gstyle.container}>
             <Controlers ctrls={[, 'Cancel', 'Done']} Mfun={() => navigation.goBack()} />
@@ -40,7 +42,7 @@ function SchduleGenScreen({ navigation }) {
                         <View style={styles.detailsbox}>
                             <Title title="Pattern" />
                             <View style={styles.innerInputComp}>
-                                <InputComp title='Days' bool={true} />
+                                <InputComp title='Days' bool={true} number />
                                 <InputComp title='I need to take medicine' bool={false} holder="every day" />
                             </View>
                         </View>

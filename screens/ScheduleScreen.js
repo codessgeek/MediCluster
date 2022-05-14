@@ -10,9 +10,43 @@ import Gstyle from '../assets/styles/globleStyles'
 import ModeStatusComp from "../components/ScheduleScreenComp/ModeStatusComp";
 import FilterCom from "../components/ScheduleScreenComp/FilterCom";
 import WeekComp from "../components/ScheduleScreenComp/WeekComp";
+import DateComp from "../components/ScheduleScreenComp/DateComp";
+import ParseData from "../components/ScheduleScreenComp/ParseData";
 
 function Schduleshow({ navigation }) {
     const [showfilter, setShowfilter] = useState(-1);
+    const [dummydata, setdummyData] = useState(dummy)
+    const dummy = [
+        { name: 'xyz 1mg', time: "08:00", date: '1/1/2022', istaken: 0 },
+        { name: 'xyz 1mg', time: "08:00", date: '1/1/2022', istaken: 1 },
+        { name: 'xyz 1mg', time: "12:00", date: '3/1/2022', istaken: 2 },
+        { name: 'xyz 1mg', time: "11:00", date: '3/1/2022', istaken: 0 },
+        { name: 'xyz 1mg', time: "20:00", date: '3/1/2022', istaken: 1 },
+        { name: 'xyz 1mg', time: "08:00", date: '5/1/2022', istaken: 1 },
+        { name: 'xyz 1mg', time: "01:00", date: '6/1/2022', istaken: 1 },
+        { name: 'xyz 1mg', time: "12:00", date: '6/1/2022', istaken: 0 },
+        { name: 'xyz 1mg', time: "08:00", date: '6/1/2022', istaken: 0 },
+        { name: 'xyz 1mg', time: "12:00", date: '7/1/2022', istaken: 0 },
+    ]
+    console.log(dummy)
+    const ready = ParseData(dummy)
+
+    function createrecord() {
+        return Object.keys(ready).map((dateItem, ind) => {
+            const rec = ready[dateItem]
+            return (
+                <View key={ind}>
+                    <DateComp fineldate={dateItem} />
+                    {console.log('*', rec[1], rec[1].length != 0, rec[1] === [])}
+                    {rec[0].length != 0 && <ModeStatusComp Dayquater={0} finelItem={rec[0]} />}
+                    {rec[1].length != 0 && <ModeStatusComp Dayquater={1} finelItem={rec[1]} />}
+                    {rec[2].length != 0 && <ModeStatusComp Dayquater={2} finelItem={rec[2]} />}
+                    {rec[3].length != 0 && <ModeStatusComp Dayquater={3} finelItem={rec[3]} />}
+                </View>
+            )
+        })
+    }
+
     return (
         <View style={Gstyle.container}>
             <View style={styles.addschduleiconStack}>
@@ -67,14 +101,16 @@ function Schduleshow({ navigation }) {
                     contentContainerStyle={Gstyle.scrollArea_contentContainerStyle}
                 >
 
-                    <ModeStatusComp Dayquater={0} />
+                    {createrecord()}
+                    {/* <ModeStatusComp Dayquater={0} />
                     <ModeStatusComp Dayquater={1} />
                     <ModeStatusComp Dayquater={2} />
                     <ModeStatusComp Dayquater={3} />
+                    <DateComp />
                     <ModeStatusComp Dayquater={0} />
                     <ModeStatusComp Dayquater={1} />
                     <ModeStatusComp Dayquater={2} />
-                    <ModeStatusComp Dayquater={3} />
+                    <ModeStatusComp Dayquater={3} /> */}
 
                 </ScrollView>
             </View>

@@ -1,9 +1,38 @@
-import React from 'react'
+import React, { useState, useEffect } from 'react'
 import { View, StyleSheet } from 'react-native'
 import DayComp from './DayComp'
 import FontAwesomeIcon from "react-native-vector-icons/FontAwesome";
 
+
 const WeekComp = () => {
+    const [startDate, setDate] = useState([-3, 3]);
+
+    function setrange(x) {
+        switch (x) {
+            case -1:
+                setDate(([st, nd]) => [st - 1, nd - 1])
+                break
+            case 1:
+                setDate(([st, nd]) => [st + 1, nd + 1])
+                break
+            default:
+                startDate
+                break
+        }
+    }
+
+    function printweek() {
+        let ans = []
+        let today = new Date()
+        let k = null
+
+        for (let i = startDate[0]; i <= startDate[1]; i++) {
+            k = new Date(Math.abs(today.getTime() + 1000 * 60 * 60 * 24 * i))
+            ans.push(<DayComp key={i} Day={[k.toLocaleString('en-US', { weekday: 'short' }).split(" ")[0], k.getDate()]} />)
+        }
+        return ans
+    }
+
     return (
         <View style={styles.displayweekpalet}>
             <View style={styles.weekschduler}>
@@ -11,6 +40,7 @@ const WeekComp = () => {
                 <View style={styles.daycell}>
                     <FontAwesomeIcon
                         name="caret-right"
+                        onPress={() => setrange(-1)}
                         style={[styles.icon2, {
                             transform: [
                                 {
@@ -21,16 +51,18 @@ const WeekComp = () => {
                     ></FontAwesomeIcon>
                 </View>
 
+                {printweek()}
+                {/* <DayComp Day={['Fri', '11']} />
                 <DayComp Day={['Fri', '11']} />
                 <DayComp Day={['Fri', '11']} />
                 <DayComp Day={['Fri', '11']} />
                 <DayComp Day={['Fri', '11']} />
                 <DayComp Day={['Fri', '11']} />
-                <DayComp Day={['Fri', '11']} />
-                <DayComp Day={['Fri', '11']} />
+                <DayComp Day={['Fri', '11']} /> */}
                 <View style={styles.daycell}>
                     <FontAwesomeIcon
                         name="caret-right"
+                        onPress={() => setrange(1)}
                         style={styles.icon2}
                     ></FontAwesomeIcon>
                 </View>

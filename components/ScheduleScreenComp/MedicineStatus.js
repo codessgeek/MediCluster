@@ -5,14 +5,14 @@ import MaterialCommunityIconsIcon from "react-native-vector-icons/MaterialCommun
 import EntypoIcon from "react-native-vector-icons/Entypo";
 
 const MedicineStatus = (prop) => {
-    let { mstatus, notestatus, time, name } = prop
+    let { mstatus, time, name } = prop
 
     return (
         <View>
             <View style={styles.rect4}>
                 <View style={styles.group2}>
                     <View style={styles.icon5Row}>
-                        {mstatus
+                        {mstatus != 0
                             ? (<FontAwesomeIcon
                                 name="star"
                                 style={styles.icon5}
@@ -29,7 +29,7 @@ const MedicineStatus = (prop) => {
                     {notestatus == 1 && <EntypoIcon name="bell" style={styles.icon6} />}
                     {notestatus == 2 && <EntypoIcon name="block" style={styles.icon6} />} */}
 
-                    <EntypoIcon name={notestatus == 0 ? 'check' : notestatus == 1 ? 'bell' : 'block'} style={styles.icon6} />
+                    <EntypoIcon name={mstatus == 0 ? 'check' : mstatus == 1 ? 'bell' : 'block'} style={styles.icon6} />
 
                     <Text style={styles.loremIpsum}>{time}</Text>
                 </View>

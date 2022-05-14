@@ -14,30 +14,16 @@ const FilterCom = () => {
             itemStyle={styles.dropdownitem}
             selectedValue={pickerValue}
             onValueChange={item => setpickerValue(item)}>
-            <Picker.Item label="item 1" value="1" />
-            <Picker.Item label="item 2" value="2" />
-            <Picker.Item label="item 2" value="2" />
-            <Picker.Item label="item 1" value="1" />
-            <Picker.Item label="item 2" value="2" />
-            <Picker.Item label="item 2" value="2" />
-            <Picker.Item label="item 1" value="1" />
-            <Picker.Item label="item 2" value="2" />
-            <Picker.Item label="item 2" value="2" />
-            <Picker.Item label="item 1" value="1" />
-            <Picker.Item label="item 2" value="2" />
-            <Picker.Item label="item 2" value="2" />
-            <Picker.Item label="item 1" value="1" />
-            <Picker.Item label="item 2" value="2" />
-            <Picker.Item label="item 2" value="2" />
+            <Picker.Item label="today" value="today" />
+            <Picker.Item label="yesterday" value="yesterday" />
+            <Picker.Item label="tommorow" value="tommorow" />
+            <Picker.Item label="week" value="week" />
+            <Picker.Item label="last 15 days" value="15days" />
+            <Picker.Item label="last month" value="month" />
           </Picker>
         </View>
 
-        <View style={styles.filterRow}>
-          <Text style={styles.filter}>Select item:</Text>
-          <TextInput
-            placeholder="choose here"
-            style={styles.chooseHere} />
-        </View>
+
       </View>
     </SafeAreaView>
   );

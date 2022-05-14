@@ -1,4 +1,3 @@
-
 import React from "react";
 import { View, Text, Button } from 'react-native';
 import PushNotification, { Importance } from 'react-native-push-notification';
@@ -17,7 +16,8 @@ export default function SelectUser({ navigation }) {
                         date: new Date(Date.now() + 3 * 1000),
                         allowWhileIdle: true
                     });
-                    return navigation.goBack()
+
+                    return navigation.pop()
                 }}
             />
         </View>

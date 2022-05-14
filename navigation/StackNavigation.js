@@ -1,6 +1,7 @@
 import React from "react";
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
 
+import Gdata from '../globals/data/globalsData'
 import SchduleGenScreen from "../screens/ScheduleGenScreen";
 import Schduleshow from "../screens/ScheduleScreen";
 import DoctorContentScreen from '../screens/DoctorContactScreen';
@@ -9,6 +10,10 @@ import ImageContainerScreen from "../screens/ImageContainerScreen";
 import ImageShelfScreen from "../screens/ImageShelfScreen";
 import NotesByFolderScreen from "../screens/NotesByFolderScreen";
 import NotesGenScreen from "../screens/NotesGenScreen";
+import HomeScreen1 from "../screens/HomeScreen1";
+
+import CurrentUser from "../screens/SelectUserScreen";
+import NewUser from "../screens/UserGenScreen";
 
 const ScheduleStack = createNativeStackNavigator();
 
@@ -18,17 +23,6 @@ export function ScheduleStackScreens() {
             <ScheduleStack.Screen name="ShowSchdule" component={Schduleshow} />
             <ScheduleStack.Screen name="addSchdule" component={SchduleGenScreen} />
         </ScheduleStack.Navigator>
-    )
-}
-
-const ContentStack = createNativeStackNavigator();
-
-export function ContentStackScreens() {
-    return (
-        <ContentStack.Navigator initialRouteName="ShowDoctContect" screenOptions={{ headerShown: false }}>
-            <ContentStack.Screen name="ShowDoctContect" component={DoctorContentScreen} />
-            <ScheduleStack.Screen name="addDoctContect" component={Doctorgenscreen} />
-        </ContentStack.Navigator>
     )
 }
 
@@ -62,5 +56,32 @@ export function DoctContentStackScreens() {
             <DoctContentStack.Screen name="ShowDoctContent" component={DoctorContentScreen} />
             <DoctContentStack.Screen name="AddDoctContent" component={DoctorContentgenscreen} />
         </DoctContentStack.Navigator>
+    )
+}
+
+const UserStack = createNativeStackNavigator();
+
+export function UserStackScreens({ navigation }) {
+
+    return (
+        <UserStack.Navigator initialRouteName="MakeUser" screenOptions={{ headerShown: false }}>
+            <UserStack.Screen name="MakeUser" component={NewUser} />
+            <UserStack.Screen name="Admin" component={CurrentUser} />
+        </UserStack.Navigator>
+    )
+}
+
+const HomeStack = createNativeStackNavigator();
+
+export function HomeScreenScreens({ navigation, route }) {
+    console.log(route.params.id);
+    const Tnav = Gdata.bottom_navigation({ ...navigation })
+    return (
+        <HomeStack.Navigator initialRouteName="Home" screenOptions={{ headerShown: false }}>
+            <HomeStack.Screen name="Home" component={HomeScreen1} />
+            <HomeStack.Screen name="Doct" component={DoctContentStackScreens} />
+            <HomeStack.Screen name="User" component={UserStackScreens} />
+        </HomeStack.Navigator>
+
     )
 }

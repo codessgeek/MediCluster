@@ -1,16 +1,15 @@
-import _objectWithoutProperties from "@babel/runtime/helpers/objectWithoutProperties";
-import React, { Component, useState } from "react";
-import { StyleSheet, View, ScrollView, Text } from "react-native";
+import React, { useState } from "react";
+import { StyleSheet, View, ScrollView, Text, TouchableWithoutFeedback } from "react-native";
 
 
-function HomeScreen1() {
+function HomeScreen1({ navigation, route }) {
   const [name, setname] = useState("hii");
   const [per, setper] = useState(10);
   const [ques, setques] = useState({
     que: "How was the day dear?",
     ans: ["Cool", "Good", "Okay"],
     value: false
-  }); 
+  });
   return (
     <View style={styles.container}>
       <View style={styles.scrollArea}>
@@ -25,13 +24,13 @@ function HomeScreen1() {
                 {(ques.ans).map(
                   (item, index) => {
                     return (
-                      <View style={styles.rect3Stack || (ques.value && styles.row)} key = {index}>
+                      <View style={styles.rect3Stack || (ques.value && styles.row)} key={index}>
                         <Text style={styles.cool}> {item} </Text>
                       </View>
                     )
                   }
                 )}
-                
+
               </View>
             </View>
           </View>
@@ -50,6 +49,23 @@ function HomeScreen1() {
               <View style={styles.rect8}>
                 <Text style={styles.information}>Information</Text>
               </View>
+            </View>
+          </View>
+
+          <View style={styles.quickRememb}>
+            <Text style={styles.quickRememberance}>Shortcuts</Text>
+            <View style={{ flexDirection: "row", width: '100%' }}>
+              <TouchableWithoutFeedback style={{ flexGrow: 1 }} onPress={() => { navigation.navigate('Docter') }}>
+                <View style={{ flexGrow: 1, margin: 2, padding: 10, backgroundColor: 'red' }}>
+                  <Text style={{ color: 'white', fontWeight: '600', fontSize: 20 }}>Docotor contect</Text>
+                </View>
+              </TouchableWithoutFeedback>
+              <TouchableWithoutFeedback style={{ flexGrow: 1 }} onPress={() => { navigation.navigate("User") }}>
+                <View style={{ flexGrow: 1, margin: 2, padding: 10, backgroundColor: 'blue' }}>
+                  <Text style={{ color: 'white', fontWeight: '600', fontSize: 20 }}>add new user</Text>
+                </View>
+              </TouchableWithoutFeedback>
+
             </View>
           </View>
 
