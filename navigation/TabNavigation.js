@@ -19,7 +19,7 @@ export default function BottomTabNav({ navigation }) {
                         'HomeStack': <Icon name="home" size={focused ? 35 : 30} color={color} />,
                         'Schdule': <Icon5 name="clock" size={focused ? 35 : 30} color={color} />,
                         'Gallery': <IconMtrls name="image" size={focused ? 35 : 30} color={color} />,
-                        'Doctor': <Icon5 name="plus" size={focused ? 35 : 30} color={color} />
+                        'Care': <Icon5 name="plus" size={focused ? 35 : 30} color={color} />
                     };
                     return iconName[route.name]
                 },
@@ -34,7 +34,7 @@ export default function BottomTabNav({ navigation }) {
             <Tab.Screen name="HomeStack" component={HomeScreenScreens} options={{ title: 'Home' }} initialParams={{ id: 5 }} />
             <Tab.Screen name="Schdule" component={ScheduleStackScreens} />
             <Tab.Screen name="Gallery" component={ImagesStackScreens} />
-            <Tab.Screen name="Doctor" component={DoctContentStackScreens} />
+            <Tab.Screen name="Care" component={DoctContentStackScreens} />
         </Tab.Navigator>
     )
 }

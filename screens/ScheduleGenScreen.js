@@ -10,7 +10,7 @@ import Title from "../components/MedicineGenScreenComp/Title";
 import InputComp from "../components/MedicineGenScreenComp/InputComp";
 import SchduleModeSetBox from "../components/MedicineGenScreenComp/SchduleModeSetBox";
 import Controlers from "../components/Controlers"
-
+import Header from "../components/Header/Header";
 
 
 const data = [
@@ -25,97 +25,79 @@ const data = [
 function SchduleGenScreen({ navigation }) {
 
     return (
-        <View style={Gstyle.container}>
-            <Controlers ctrls={[, 'Cancel', 'Done']} Mfun={() => navigation.goBack()} />
-            <View style={Gstyle.scrollArea}>
-                <ScrollView
-                    contentContainerStyle={Gstyle.scrollArea_contentContainerStyle}
-                >
-                    <View style={styles.group29}>
-                        <View style={styles.detailsbox}>
-                            <Title title="Medicine details" />
-                            <View style={styles.innerInputComp}>
-                                <InputComp title='Medicine name' bool={false} holder="xyz 1mg" />
+        <>
+            <Header title={"Add medicine"} back navigation={navigation} />
+            <View style={Gstyle.container}>
+                <Controlers ctrls={[, 'Cancel', 'Done']} Mfun={() => navigation.goBack()} />
+                <View style={Gstyle.scrollArea}>
+                    <ScrollView
+                        contentContainerStyle={Gstyle.scrollArea_contentContainerStyle}
+                    >
+                        <View style={styles.group29}>
+                            <View style={styles.detailsbox}>
+                                <Title title="Medicine details" />
+                                <View style={styles.innerInputComp}>
+                                    <InputComp title='Medicine name' bool={false} holder="xyz 1mg" />
+                                </View>
                             </View>
-                        </View>
-
-                        <View style={styles.detailsbox}>
-                            <Title title="Pattern" />
-                            <View style={styles.innerInputComp}>
-                                <InputComp title='Days' bool={true} number />
-                                <InputComp title='I need to take medicine' bool={false} holder="every day" />
+                            <View style={styles.detailsbox}>
+                                <Title title="Pattern" />
+                                <View style={styles.innerInputComp}>
+                                    <InputComp title='Days' bool={true} number />
+                                    <InputComp title='I need to take medicine' bool={false} holder="every day" />
+                                </View>
                             </View>
-                        </View>
-
-                        <View style={styles.detailsbox}>
-                            <Title title="Timings" />
-
-
-                            <View style={styles.innerInputComp}>
-                                <InputComp title="Starting from" bool={true} />
-                                <InputComp title="Time" other={[<MaterialCommunityIconsIcon
-                                    name="currency-eth"
-                                    style={styles.displaydroppdown}
-                                    key="StartingFrom"
-                                ></MaterialCommunityIconsIcon>,
-                                <IoniconsIcon
-                                    name="md-add-circle-outline"
-                                    style={styles.icon6}
-                                    key="Time"
-                                ></IoniconsIcon>]} />
-
-                                <View style={styles.timedifselve}>
-                                    <View style={styles.morningtimeRow}>
-
-                                        <SchduleModeSetBox title="Morning" list={data}
-
-                                            modeIcon={<FeatherIcon
-                                                name="sun"
-                                                style={styles.icon15}
-                                            ></FeatherIcon>}
-
-                                        />
-
-                                        <SchduleModeSetBox title="AfterNoone" list={data}
-
-                                            modeIcon={<FeatherIcon
-                                                name="sun"
-                                                style={styles.icon15}
-                                            ></FeatherIcon>}
-
-                                        />
+                            <View style={styles.detailsbox}>
+                                <Title title="Timings" />
+                                <View style={styles.innerInputComp}>
+                                    <InputComp title="Starting from" bool={true} />
+                                    <InputComp title="Time" other={[<MaterialCommunityIconsIcon
+                                        name="currency-eth"
+                                        style={styles.displaydroppdown}
+                                        key="StartingFrom"
+                                    ></MaterialCommunityIconsIcon>,
+                                    <IoniconsIcon
+                                        name="md-add-circle-outline"
+                                        style={styles.icon6}
+                                        key="Time"
+                                    ></IoniconsIcon>]} />
+                                    <View style={styles.timedifselve}>
+                                        <View style={styles.morningtimeRow}>
+                                            <SchduleModeSetBox title="Morning" list={data}
+                                                modeIcon={<FeatherIcon
+                                                    name="sun"
+                                                    style={styles.icon15}
+                                                ></FeatherIcon>}
+                                            />
+                                            <SchduleModeSetBox title="AfterNoone" list={data}
+                                                modeIcon={<FeatherIcon
+                                                    name="sun"
+                                                    style={styles.icon15}
+                                                ></FeatherIcon>}
+                                            />
+                                        </View>
+                                        <View style={styles.morningtimeRow}>
+                                            <SchduleModeSetBox title="Morning" list={data}
+                                                modeIcon={<FeatherIcon
+                                                    name="sun"
+                                                    style={styles.icon15}
+                                                ></FeatherIcon>}
+                                            />
+                                            <SchduleModeSetBox title="AfterNoone" list={data}
+                                                modeIcon={<FeatherIcon
+                                                    name="sun"
+                                                    style={styles.icon15}
+                                                ></FeatherIcon>}
+                                            />
+                                        </View>
                                     </View>
-
-                                    <View style={styles.morningtimeRow}>
-
-                                        <SchduleModeSetBox title="Morning" list={data}
-
-                                            modeIcon={<FeatherIcon
-                                                name="sun"
-                                                style={styles.icon15}
-                                            ></FeatherIcon>}
-
-                                        />
-
-                                        <SchduleModeSetBox title="AfterNoone" list={data}
-
-                                            modeIcon={<FeatherIcon
-                                                name="sun"
-                                                style={styles.icon15}
-                                            ></FeatherIcon>}
-
-                                        />
-                                    </View>
-
-
                                 </View>
                             </View>
                         </View>
-                    </View>
-                </ScrollView>
+                    </ScrollView>
+                </View>
             </View>
-        </View>
-
+        </>
     );
 }
 

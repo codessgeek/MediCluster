@@ -12,13 +12,7 @@ function HomeScreen1({ navigation, route }) {
     value: false
   });
   return (<>
-    <Header navigation={navigation} title={'Home screen'} optionListObj={{
-      'Move': () => console.log('Move image'),
-      'Copy': () => console.log('copy image'),
-      'Move': () => console.log('Move image'),
-      'Camera': () => console.log('take a new image'),
-      'Retake': () => console.log('retake a new image')
-    }} />
+    <Header navigation={navigation} title={'Home screen'} />
     <View style={styles.container}>
 
       <View style={styles.scrollArea}>

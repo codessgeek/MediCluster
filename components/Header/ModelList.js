@@ -1,6 +1,8 @@
 import React from 'react'
 import { View, Text, Modal, StyleSheet, TouchableWithoutFeedback, SafeAreaView } from 'react-native'
 import Icon from 'react-native-vector-icons/Ionicons'
+
+
 function genList(listobj, changeVisiblety) {
     return Object.keys(listobj).map((title, ind) => {
         { console.log(title) }
@@ -48,7 +50,7 @@ const styles = StyleSheet.create({
         top: 0,
         minWidth: 150,
         padding: 2,
-        backgroundColor: 'pink',
+        backgroundColor: 'rgb(255, 255, 255)',
         borderRadius: 5
     },
     list: {

@@ -11,9 +11,14 @@ import {
 // import globals
 import Color from "../assets/color/Colors";
 import Gstyle from "../assets/styles/globleStyles";
+
+// import component
 import Doctorcontentcomp from "../components/NotesGenScreen/Doctorcontentcomp";
 
-function Displaycontextscreen(props) {
+// import header
+import Header from "../components/Header/Header";
+
+function Displaycontextscreen({ navigation }) {
     const [sortby, setsortby] = useState(0)
     const [oindex, setoindex] = useState(-1)
     const permitToOpen = (x) => {
@@ -47,35 +52,40 @@ function Displaycontextscreen(props) {
 
     ])
     return (
-        <View style={Gstyle.container}>
+        <>
+            <Header title={"My Cares"} navigation={navigation} optionListObj={{
+                'Add Care': () => navigation.navigate('AddDoctContent')
+            }} />
+            <View style={Gstyle.container}>
 
-            <View style={styles.menudisplaycontentscreen}>
-                <View style={styles.menubar}>
-                    <TouchableWithoutFeedback onPress={() => {
-                        setsortby(0)
-                    }}><Text style={[styles.menuitem, sortby == 0 && { textDecorationLine: "underline" }]}>Name</Text></TouchableWithoutFeedback>
+                <View style={styles.menudisplaycontentscreen}>
+                    <View style={styles.menubar}>
+                        <TouchableWithoutFeedback onPress={() => {
+                            setsortby(0)
+                        }}><Text style={[styles.menuitem, sortby == 0 && { textDecorationLine: "underline" }]}>Name</Text></TouchableWithoutFeedback>
 
-                    <TouchableWithoutFeedback onPress={() => {
-                        setsortby(1)
-                    }}><Text style={[styles.menuitem, sortby == 1 && { textDecorationLine: "underline" }]}>contect no.</Text></TouchableWithoutFeedback>
+                        <TouchableWithoutFeedback onPress={() => {
+                            setsortby(1)
+                        }}><Text style={[styles.menuitem, sortby == 1 && { textDecorationLine: "underline" }]}>contect no.</Text></TouchableWithoutFeedback>
 
-                    <TouchableWithoutFeedback onPress={() => {
-                        setsortby(2)
-                    }}><Text style={[styles.menuitem, sortby == 2 && { textDecorationLine: "underline" }]}>discription</Text></TouchableWithoutFeedback>
+                        <TouchableWithoutFeedback onPress={() => {
+                            setsortby(2)
+                        }}><Text style={[styles.menuitem, sortby == 2 && { textDecorationLine: "underline" }]}>discription</Text></TouchableWithoutFeedback>
 
+                    </View>
+                </View>
+                <View style={Gstyle.scrollArea}>
+                    <ScrollView
+                        contentContainerStyle={Gstyle.scrollArea_contentContainerStyle}
+                    >
+
+                        {con.map((item) => <Doctorcontentcomp oindex={oindex} permitToOpen={permitToOpen} item={item} key={item.id} />)}
+
+
+                    </ScrollView>
                 </View>
             </View>
-            <View style={Gstyle.scrollArea}>
-                <ScrollView
-                    contentContainerStyle={Gstyle.scrollArea_contentContainerStyle}
-                >
-
-                    {con.map((item) => <Doctorcontentcomp oindex={oindex} permitToOpen={permitToOpen} item={item} key={item.id} />)}
-
-
-                </ScrollView>
-            </View>
-        </View>
+        </>
     );
 }
 

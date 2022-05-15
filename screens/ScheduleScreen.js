@@ -12,6 +12,7 @@ import FilterCom from "../components/ScheduleScreenComp/FilterCom";
 import WeekComp from "../components/ScheduleScreenComp/WeekComp";
 import DateComp from "../components/ScheduleScreenComp/DateComp";
 import ParseData from "../components/ScheduleScreenComp/ParseData";
+import Header from "../components/Header/Header";
 
 function Schduleshow({ navigation }) {
     const [showfilter, setShowfilter] = useState(-1);
@@ -59,62 +60,64 @@ function Schduleshow({ navigation }) {
     }
 
     return (
-        <View style={Gstyle.container}>
-            <View style={styles.addschduleiconStack}>
-                <View style={styles.addschduleicon}>
-                    <TouchableWithoutFeedback onPress={() => setShowfilter((pre) => pre == 1 ? -1 : pre + 1)}>
+        <>
+            <Header title={"Schdules"} />
+            <View style={Gstyle.container}>
+                <View style={styles.addschduleiconStack}>
+                    <View style={styles.addschduleicon}>
+                        <TouchableWithoutFeedback onPress={() => setShowfilter((pre) => pre == 1 ? -1 : pre + 1)}>
+                            <View style={styles.rect2}>
+                                <MaterialCommunityIconsIcon
+                                    name="filter"
+                                    style={styles.icon}
+                                ></MaterialCommunityIconsIcon>
+                            </View>
+                        </TouchableWithoutFeedback>
+
                         <View style={styles.rect2}>
-                            <MaterialCommunityIconsIcon
-                                name="filter"
+
+                            <FontAwesomeIcon
+                                name="calendar-plus-o"
                                 style={styles.icon}
-                            ></MaterialCommunityIconsIcon>
+                                onPress={() => navigation.navigate('addSchdule')}
+                            ></FontAwesomeIcon>
                         </View>
-                    </TouchableWithoutFeedback>
+                    </View>
 
-                    <View style={styles.rect2}>
+                    <View style={styles.filteroptiongroup}>
 
-                        <FontAwesomeIcon
-                            name="calendar-plus-o"
-                            style={styles.icon}
-                            onPress={() => navigation.navigate('addSchdule')}
-                        ></FontAwesomeIcon>
+                        <View style={styles.filteroptionpanelStack}>
+
+                            {showfilter == 0 && <FilterCom />}
+                            {showfilter == 1 && <WeekComp />}
+
+                        </View>
                     </View>
                 </View>
+                <View style={styles.pointsbar}>
+                    <View style={styles.rect7}>
+                        <View style={styles.group8}>
 
-                <View style={styles.filteroptiongroup}>
-
-                    <View style={styles.filteroptionpanelStack}>
-
-                        {showfilter == 0 && <FilterCom />}
-                        {showfilter == 1 && <WeekComp />}
-
+                            <MaterialCommunityIconsIcon
+                                name="cards-heart"
+                                style={[styles.icon11, readyData[0] != 0 && { color: 'red' }]}
+                            ></MaterialCommunityIconsIcon>
+                            <Text style={styles.loremIpsum3}>{readyData[0]}</Text>
+                            <FontAwesomeIcon
+                                name="star"
+                                style={[styles.icon11, readyData[1] == 0 && { color: 'red' }]}
+                            ></FontAwesomeIcon>
+                            <Text style={styles.loremIpsum3}>{readyData[1]}</Text>
+                        </View>
                     </View>
                 </View>
-            </View>
-            <View style={styles.pointsbar}>
-                <View style={styles.rect7}>
-                    <View style={styles.group8}>
+                <View style={[Gstyle.scrollArea, styles.scrollArea]}>
+                    <ScrollView
+                        contentContainerStyle={Gstyle.scrollArea_contentContainerStyle}
+                    >
 
-                        <MaterialCommunityIconsIcon
-                            name="cards-heart"
-                            style={[styles.icon11, readyData[0] != 0 && { color: 'red' }]}
-                        ></MaterialCommunityIconsIcon>
-                        <Text style={styles.loremIpsum3}>{readyData[0]}</Text>
-                        <FontAwesomeIcon
-                            name="star"
-                            style={[styles.icon11, readyData[1] == 0 && { color: 'red' }]}
-                        ></FontAwesomeIcon>
-                        <Text style={styles.loremIpsum3}>{readyData[1]}</Text>
-                    </View>
-                </View>
-            </View>
-            <View style={[Gstyle.scrollArea, styles.scrollArea]}>
-                <ScrollView
-                    contentContainerStyle={Gstyle.scrollArea_contentContainerStyle}
-                >
-
-                    {createrecord()}
-                    {/* <ModeStatusComp Dayquater={0} />
+                        {createrecord()}
+                        {/* <ModeStatusComp Dayquater={0} />
                     <ModeStatusComp Dayquater={1} />
                     <ModeStatusComp Dayquater={2} />
                     <ModeStatusComp Dayquater={3} />
@@ -124,10 +127,11 @@ function Schduleshow({ navigation }) {
                     <ModeStatusComp Dayquater={2} />
                     <ModeStatusComp Dayquater={3} /> */}
 
-                </ScrollView>
-            </View>
+                    </ScrollView>
+                </View>
 
-        </View>
+            </View>
+        </>
     );
 }
 let styles = StyleSheet.create({

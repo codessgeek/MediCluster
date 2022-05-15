@@ -11,8 +11,6 @@ import ImageShelfScreen from "../screens/ImageShelfScreen";
 import NotesByFolderScreen from "../screens/NotesByFolderScreen";
 import NotesGenScreen from "../screens/NotesGenScreen";
 import HomeScreen1 from "../screens/HomeScreen1";
-
-import CurrentUser from "../screens/SelectUserScreen";
 import NewUser from "../screens/UserGenScreen";
 
 const ScheduleStack = createNativeStackNavigator();
@@ -59,18 +57,6 @@ export function DoctContentStackScreens() {
     )
 }
 
-const UserStack = createNativeStackNavigator();
-
-export function UserStackScreens({ navigation }) {
-
-    return (
-        <UserStack.Navigator initialRouteName="MakeUser" screenOptions={{ headerShown: false }}>
-            <UserStack.Screen name="MakeUser" component={NewUser} />
-            <UserStack.Screen name="Admin" component={CurrentUser} />
-        </UserStack.Navigator>
-    )
-}
-
 const HomeStack = createNativeStackNavigator();
 
 export function HomeScreenScreens({ navigation, route }) {
@@ -80,7 +66,7 @@ export function HomeScreenScreens({ navigation, route }) {
         <HomeStack.Navigator initialRouteName="Home" screenOptions={{ headerShown: false }}>
             <HomeStack.Screen name="Home" component={HomeScreen1} />
             <HomeStack.Screen name="Doct" component={DoctContentStackScreens} />
-            <HomeStack.Screen name="User" component={UserStackScreens} />
+            <HomeStack.Screen name="User" component={NewUser} />
         </HomeStack.Navigator>
 
     )

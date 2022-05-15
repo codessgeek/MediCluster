@@ -22,55 +22,61 @@ import Controlers from "../components/Controlers";
 import Gstyles from "../assets/styles/globleStyles";
 import Color from "../assets/color/Colors";
 
+//header
+import Header from "../components/Header/Header";
+
 function Doctorgenscreen({ navigation }) {
     return (
-        <View style={Gstyles.container}>
-            <Controlers ctrls={['Cancle', , 'Done']} />
-            <View style={[Gstyles.scrollArea, { flex: 1 }]}>
-                <ScrollView
-                    contentContainerStyle={Gstyles.scrollArea_contentContainerStyle}>
-                    <View style={styles.doctorsIcon}>
-                        <View style={styles.icnbg}>
-                            <MaterialCommunityIconsIcon
-                                name="home-plus"
-                                style={styles.homeplusicn}
-                            ></MaterialCommunityIconsIcon>
-                        </View>
-                    </View>
-
-                    <TextField title={'Name'} pholder={'dr. bhatnagar'} />
-                    <TextField title={'Discription'} pholder={'Eyes specialist'} corr />
-
-                    <View style={Gstyles.boxui}>
-                        <Text style={Gstyles.boxtitle}>Mobile no:</Text>
-                        <View style={styles.doctorsMobileNoComponent}>
-                            <Mobilenumbercom last />
-                            <Mobilenumbercom />
-                        </View>
-                    </View>
-
-                    <View style={Gstyles.boxui}>
-                        <Text style={Gstyles.boxtitle}>Greeting card:</Text>
-                        <View style={styles.rect3Row}>
-                            <View style={styles.imagelocationbg}></View>
-                            <View style={styles.uploadbtngroup}>
-                                <TouchableOpacity style={styles.button}>
-                                    <FeatherIcon
-                                        name="upload"
-                                        style={styles.shareanduploadicon}
-                                    ></FeatherIcon>
-                                </TouchableOpacity>
-                            </View>
-                            <View style={styles.uploadbtngroup}>
-                                <TouchableOpacity style={styles.button}>
-                                    <EntypoIcon name="share" style={styles.shareanduploadicon}></EntypoIcon>
-                                </TouchableOpacity>
+        <>
+            <Header navigation={navigation} title={'Add Care'} back />
+            <View style={Gstyles.container}>
+                <Controlers ctrls={[, , 'Done']} Ffun={() => console.log("Done from add care")} />
+                <View style={[Gstyles.scrollArea, { flex: 1 }]}>
+                    <ScrollView
+                        contentContainerStyle={Gstyles.scrollArea_contentContainerStyle}>
+                        <View style={styles.doctorsIcon}>
+                            <View style={styles.icnbg}>
+                                <MaterialCommunityIconsIcon
+                                    name="home-plus"
+                                    style={styles.homeplusicn}
+                                ></MaterialCommunityIconsIcon>
                             </View>
                         </View>
-                    </View>
-                </ScrollView>
+
+                        <TextField title={'Name'} pholder={'dr. bhatnagar'} />
+                        <TextField title={'Discription'} pholder={'Eyes specialist'} corr />
+
+                        <View style={Gstyles.boxui}>
+                            <Text style={Gstyles.boxtitle}>Mobile no:</Text>
+                            <View style={styles.doctorsMobileNoComponent}>
+                                <Mobilenumbercom last />
+                                <Mobilenumbercom />
+                            </View>
+                        </View>
+
+                        <View style={Gstyles.boxui}>
+                            <Text style={Gstyles.boxtitle}>Greeting card:</Text>
+                            <View style={styles.rect3Row}>
+                                <View style={styles.imagelocationbg}></View>
+                                <View style={styles.uploadbtngroup}>
+                                    <TouchableOpacity style={styles.button}>
+                                        <FeatherIcon
+                                            name="upload"
+                                            style={styles.shareanduploadicon}
+                                        ></FeatherIcon>
+                                    </TouchableOpacity>
+                                </View>
+                                <View style={styles.uploadbtngroup}>
+                                    <TouchableOpacity style={styles.button}>
+                                        <EntypoIcon name="share" style={styles.shareanduploadicon}></EntypoIcon>
+                                    </TouchableOpacity>
+                                </View>
+                            </View>
+                        </View>
+                    </ScrollView>
+                </View>
             </View>
-        </View>
+        </>
     );
 }
 

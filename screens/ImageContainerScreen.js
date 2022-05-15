@@ -7,49 +7,52 @@ import {
   Text
 } from "react-native";
 import Icon from "react-native-vector-icons/Feather";
-import ImageshelveComp from "../components/ImageContainerScreenComp/ImageshelveComp";
+
 import globalStyles from "../assets/styles/globleStyles";
 import GalComp from "../components/ImageContainerScreenComp/GalComp";
 import AlbumComp from "../components/ImageContainerScreenComp/AlbumComp";
+import Header from "../components/Header/Header";
 
 
 
-function GalaryFolderScreen(props) {
-  const [isAlbum, setIsAlbum]=useState(true);
-  const toggle = () =>{
-    setIsAlbum((pre)=>!pre);
+function GalaryFolderScreen({ navigation }) {
+  const [isAlbum, setIsAlbum] = useState(true);
+  const toggle = () => {
+    setIsAlbum((pre) => !pre);
   }
-  return (
+  return (<>
+    <Header title="Photos" />
     <View style={globalStyles.container}>
 
-        <View style={styles.gallaryHeader}>
+      <View style={styles.gallaryHeader}>
         <View style={styles.albumsRow}>
-            <View style={{flexDirection: "row"}}>
-                 <Text onPress={()=>toggle()} style={[styles.albums,isAlbum && {textDecorationLine: "underline"}]}>Albums</Text>
-                  <Text onPress={()=>toggle()} style={[styles.albums,!isAlbum && {textDecorationLine: "underline"}]}>Gallary</Text>
-            </View>
-            <View>
-                 <Icon name="plus-circle" style={styles.icon}></Icon>
-            </View>
+          <View style={{ flexDirection: "row" }}>
+            <Text onPress={() => toggle()} style={[styles.albums, isAlbum && { textDecorationLine: "underline" }]}>Albums</Text>
+            <Text onPress={() => toggle()} style={[styles.albums, !isAlbum && { textDecorationLine: "underline" }]}>Gallary</Text>
+          </View>
+          <View>
+            <Icon name="plus-circle" style={styles.icon} />
+          </View>
         </View>
       </View>
       <View style={globalStyles.scrollArea}>
 
         <ScrollView
-          contentContainerStyle={[globalStyles.scrollArea_contentContainerStyle,{justifyContent: "flex-start"}]}
+          contentContainerStyle={[globalStyles.scrollArea_contentContainerStyle, { justifyContent: "flex-start" }]}
         >
-          {isAlbum? <GalComp/>:<AlbumComp/>}
-          
+          {isAlbum ? <GalComp /> : <AlbumComp />}
+
         </ScrollView>
       </View>
     </View>
+  </>
   );
 }
 
 const styles = StyleSheet.create({
-    scrollArea: {
-        backgroundColor: "red"
-    },
+  scrollArea: {
+    backgroundColor: "red"
+  },
 
   photoAlbumCompomemt2: {
     width: 145,
@@ -71,7 +74,7 @@ const styles = StyleSheet.create({
     marginTop: 5,
     marginLeft: 13
   },
-  
+
   gallaryHeader: {
     flexDirection: "row"
   },

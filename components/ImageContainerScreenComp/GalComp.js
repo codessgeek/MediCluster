@@ -8,7 +8,7 @@ const GalComp = () => {
   return (
 
     <View style={styles.photoAlbumComponentRow}>
-      {Object.keys(data).map((folder) => <ImageshelveComp folder={folder} lastImage={data[folder]["lastImage"]} count={data[folder]["count"]} />)}
+      {Object.keys(data).map((folder, ind) => <ImageshelveComp folder={folder} lastImage={data[folder]["lastImage"]} count={data[folder]["count"]} key={ind} />)}
     </View>
   )
 }

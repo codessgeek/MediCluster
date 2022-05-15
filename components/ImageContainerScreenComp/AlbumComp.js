@@ -4,7 +4,7 @@ import { View, Text, StyleSheet, Dimensions } from 'react-native';
 const data = { "January": ["abc.jpg", "abc.jpg", "abc.jpg", "abc.jpg", "abc.jpg"], "February": ["abc.jpg", "abc.jpg", "abc.jpg"] }
 
 const AlbumComp = () => {
-  const RenderImage = (imgarr) => imgarr.map((img) => <View style={styles.rect19}></View>)
+  const RenderImage = (imgarr) => imgarr.map((img, ind) => <View style={styles.rect19} key={ind}></View>)
 
   return (
 

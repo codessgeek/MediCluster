@@ -3,13 +3,12 @@ import { View, Text, StyleSheet } from 'react-native'
 import Dots from 'react-native-vector-icons/MaterialCommunityIcons'
 import Lines from 'react-native-vector-icons/Ionicons'
 import ModelList from './ModelList'
-import { TouchableOpacity } from 'react-native-gesture-handler'
 
-const Header = ({ title, navigation, back, optionListObj = true }) => {
-    let option = optionListObj != undefined
+const Header = ({ title, navigation, back, optionListObj, CustomIcn }) => {
+    let option = (optionListObj != undefined)
+    let cicn = (CustomIcn != undefined)
     const [visibleOpt, setVisibleOpt] = useState(false);
     const toggle = function (x) {
-        console.log(visibleOpt)
         setVisibleOpt((pre) => (x == undefined ? !pre : x))
     }
     return (
@@ -22,14 +21,16 @@ const Header = ({ title, navigation, back, optionListObj = true }) => {
                 <View>
                     <Text style={styles.headertext}>{title}</Text>
                 </View>
-                <View style={!option && back && { width: 40 }}>
-                    <ModelList visibleOpt={visibleOpt} changeVisiblety={toggle} optionListObj={optionListObj} />
-                    {option &&
-
-                        <Dots name='dots-vertical' color="white" size={35} style={styles.dots} onPress={() => toggle()} />
-
-
+                <View style={!option && back && !cicn && { width: 40 }}>
+                    {cicn && !option && CustomIcn}
+                    {option && !cicn && (
+                        <>
+                            <ModelList visibleOpt={visibleOpt} changeVisiblety={toggle} optionListObj={optionListObj} />
+                            <Dots name='dots-vertical' color="white" size={35} style={styles.dots} onPress={() => toggle()} />
+                        </>)
                     }
+
+
                 </View>
             </View>
         </View>
