@@ -1,26 +1,31 @@
 import React from 'react';
 import {View, Text, StyleSheet, Dimensions} from 'react-native';
 
+const data = {"January":["abc.jpg","abc.jpg","abc.jpg","abc.jpg","abc.jpg"], "February":["abc.jpg","abc.jpg","abc.jpg"]}
+
 const AlbumComp = () => {
+  const RenderImage = (imgarr) =>imgarr.map((img)=><View style={styles.rect19}></View>)
+  
   return (
     
-    <View style={styles.group}>
-        <Text style={styles.august}>August</Text>
-        <View style={styles.rect19Row}>
-          <View style={styles.rect19}></View>
-          <View style={styles.rect19}></View>
-          <View style={styles.rect19}></View>
-          <View style={styles.rect19}></View>
-          <View style={styles.rect19}></View>
-          <View style={styles.rect19}></View>
-        </View>
+   <View>
+      {Object.keys(data).map((month,ind)=> {
+        return(
+           <View style={styles.group} key={ind}>
+            <Text style={styles.august}>{month}</Text>
+              <View style={styles.rect19Row}>
+                {RenderImage(data[month])}
+            </View>
+          </View>
+        )
+      })}
     </View>
   )
 }
 
 const styles = StyleSheet.create({
     group: {
-
+      marginVertical: 10
     },
     august: {
         fontFamily: "roboto-regular",
@@ -29,8 +34,7 @@ const styles = StyleSheet.create({
     },
     rect19Row: {
         flexDirection: "row",
-        flexWrap: "wrap",
-        justifyContent: "space-between"
+        flexWrap: "wrap"
     },
     rect19: {
         width: 73,
