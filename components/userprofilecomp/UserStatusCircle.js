@@ -22,7 +22,7 @@ const styles = StyleSheet.create({
         margin: 5
     },
     icon: {
-        backgroundColor: 'blue',
+        backgroundColor: 'pink',
         borderRadius: 50,
         justifyContent: 'center',
         alignSelf: 'center',

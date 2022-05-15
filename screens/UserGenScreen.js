@@ -14,6 +14,7 @@ import MaterialIconsIcon from "react-native-vector-icons/MaterialIcons";
 
 import Gstyle from '../assets/styles/globleStyles'
 import UserStatusCircle from "../components/userprofilecomp/UserStatusCircle";
+import Checkbox from "../components/userprofilecomp/Checkbox";
 
 function ProfilePage(props) {
     const list = [
@@ -30,7 +31,7 @@ function ProfilePage(props) {
     return (
         <View style={styles.container}>
 
-            {/* <View style={styles.horizontalScrollGroup}>
+            <View style={styles.horizontalScrollGroup}>
                 <View style={styles.scrollArea}>
                     <ScrollView
                         horizontal={true}
@@ -42,14 +43,14 @@ function ProfilePage(props) {
                         </View>
                     </ScrollView>
                 </View>
-            </View> */}
+            </View>
 
-            {/* <View style={styles.profileRow}>
+            <View style={styles.profileRow}>
                 <Text style={styles.profile}>Profile</Text>
                 <View style={styles.addUserIcon}>
                     <FeatherIcon name="plus" style={styles.icon6}></FeatherIcon>
                 </View>
-            </View> */}
+            </View>
 
             <View style={styles.scrollArea2}>
                 <ScrollView
@@ -58,14 +59,14 @@ function ProfilePage(props) {
 
                     <View style={styles.userProfile}>
                         <View style={styles.rect}>
-                            {/* <View style={styles.cancleDoneOption}>
+                            <View style={styles.cancleDoneOption}>
                                 <View style={styles.cancelRow}>
                                     <Text style={styles.cancel}>Cancel</Text>
                                     <Text style={styles.done}>Done</Text>
                                 </View>
-                            </View> */}
+                            </View>
                             <View style={styles.profileForm}>
-                                {/* <View style={styles.userProfileName}>
+                                <View style={styles.userProfileName}>
                                     <Text style={styles.name}>Name :</Text>
                                     <TextInput
                                         placeholder="name"
@@ -82,7 +83,7 @@ function ProfilePage(props) {
                                         autoCapitalize="words"
                                         style={styles.placeholder1}
                                     ></TextInput>
-                                </View> */}
+                                </View>
                                 <View style={styles.userProfileGender}>
                                     <View style={styles.group4}>
                                         <Text style={styles.gender}>Gender:</Text>
@@ -134,6 +135,7 @@ function ProfilePage(props) {
                     <Text style={styles.removeContent}>Remove content</Text>
                     <View style={styles.rect2}>
                         <View style={styles.removeContentGroup}>
+                            <Checkbox text={"Delete this user"} />
                             <View style={styles.deleteUserCb}>
                                 <View style={styles.icon13Row}>
                                     <MaterialIconsIcon
