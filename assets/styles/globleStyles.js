@@ -27,7 +27,7 @@ export const globalStyles = StyleSheet.create({
         flex: 1
     },
     scrollArea_contentContainerStyle: {
-        justifyContent: 'center',
+        justifyContent: 'flex-start',
         flexGrow: 1,
         margin: 5
         // =======

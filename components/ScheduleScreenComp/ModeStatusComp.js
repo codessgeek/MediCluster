@@ -4,7 +4,7 @@ import FontAwesomeIcon from "react-native-vector-icons/FontAwesome";
 import FeatherIcon from "react-native-vector-icons/Feather";
 import MedicineStatus from './MedicineStatus';
 
-const ModeStatusComp = ({ Dayquater, finelItem }) => {
+const ModeStatusComp = ({ Dayquater, finelItem, isPause, readyData }) => {
     const Dayquaterbox = {
         0: ['Morning', <FeatherIcon name="sun" style={styles.icon4} />],
         1: ['AFTERNOON', <FontAwesomeIcon name="clock-o" style={styles.icon4} />],
@@ -21,7 +21,7 @@ const ModeStatusComp = ({ Dayquater, finelItem }) => {
                         <Text style={styles.morning12}>{Dayquaterbox[Dayquater][0]}</Text>
                     </View>
                 </View>
-                {finelItem.map((item, ind) => <MedicineStatus mstatus={item.istaken} key={ind} time={item.time} name={item.name} />)}
+                {finelItem.map((item, ind) => <MedicineStatus medItem={item} key={item.id} isPause={isPause} readyData={readyData} />)}
             </View>
         </View>
     )

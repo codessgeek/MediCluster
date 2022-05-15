@@ -1,18 +1,25 @@
-import React from 'react'
+import React, { useState, useEffect } from 'react'
 import { Text, View, StyleSheet } from 'react-native';
 import FontAwesomeIcon from "react-native-vector-icons/FontAwesome";
 import MaterialCommunityIconsIcon from "react-native-vector-icons/MaterialCommunityIcons";
 import EntypoIcon from "react-native-vector-icons/Entypo";
 
-const MedicineStatus = (prop) => {
-    let { mstatus, time, name } = prop
+const MedicineStatus = ({ medItem, isPause, readyData }) => {
+
+    const [isOff, setIsOff] = useState(medItem.istaken)
+
+    useEffect(() => {
+        setIsOff(medItem.istaken)
+    }, [readyData])
+
+
 
     return (
         <View>
             <View style={styles.rect4}>
                 <View style={styles.group2}>
                     <View style={styles.icon5Row}>
-                        {mstatus != 0
+                        {medItem.istaken != 0
                             ? (<FontAwesomeIcon
                                 name="star"
                                 style={styles.icon5}
@@ -21,7 +28,7 @@ const MedicineStatus = (prop) => {
                                 name="cards-heart"
                                 style={styles.icon5}
                             ></MaterialCommunityIconsIcon>)}
-                        <Text style={styles.xyz1Mg}>{name}</Text>
+                        <Text style={styles.xyz1Mg}>{medItem.name}</Text>
                     </View>
                 </View>
                 <View style={styles.icon6Row}>
@@ -29,9 +36,9 @@ const MedicineStatus = (prop) => {
                     {notestatus == 1 && <EntypoIcon name="bell" style={styles.icon6} />}
                     {notestatus == 2 && <EntypoIcon name="block" style={styles.icon6} />} */}
 
-                    <EntypoIcon name={mstatus == 0 ? 'check' : mstatus == 1 ? 'bell' : 'block'} style={styles.icon6} />
+                    <EntypoIcon name={isOff == 0 ? 'check' : isOff == 1 ? 'bell' : 'block'} style={styles.icon6} onPress={() => { isPause(medItem.id) }} />
 
-                    <Text style={styles.loremIpsum}>{time}</Text>
+                    <Text style={styles.loremIpsum}>{medItem.time}</Text>
                 </View>
             </View>
         </View>
