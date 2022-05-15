@@ -5,6 +5,7 @@ import { Text, View, StyleSheet } from 'react-native';
 
 const data = {"User1":{name: "Mr. Raja",age: 50}, "User2":{name: "Mrs. Raja", age: 60}};
 
+
 const TotalUserComp = () => {
    
   return (
