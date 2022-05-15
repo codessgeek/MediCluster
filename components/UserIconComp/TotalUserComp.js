@@ -1,15 +1,16 @@
 
-import React from 'react';
+import React, { useState } from 'react';
 import UserIconComp from './UserIconComp';
 import { Text, View, StyleSheet } from 'react-native';
 
 const data = {"User1":{name: "Mr. Raja",age: 50}, "User2":{name: "Mrs. Raja", age: 60}};
 
 const TotalUserComp = () => {
-    
+   
   return (
     <View style={styles.currentUserProfileComponentRow}>
          {Object.keys(data).map((user) => <UserIconComp user={user} name={data[user]["name"]} age={data[user]["age"]}/>)}
+         
     </View>
   )
 }
