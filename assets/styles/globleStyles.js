@@ -30,12 +30,6 @@ export const globalStyles = StyleSheet.create({
         justifyContent: 'flex-start',
         flexGrow: 1,
         margin: 5
-        // =======
-        //         flex: 1,
-        //         flexGrow: 1,
-        //     },
-        //     scrollArea_contentContainerStyle: {
-        //         padding: 5,
     },
 });
 

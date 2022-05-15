@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { StyleSheet, View, ScrollView, Text, TouchableWithoutFeedback } from "react-native";
+import Header from "../components/Header";
 
 
 function HomeScreen1({ navigation, route }) {
@@ -10,8 +11,10 @@ function HomeScreen1({ navigation, route }) {
     ans: ["Cool", "Good", "Okay"],
     value: false
   });
-  return (
+  return (<>
+    <Header navigation={navigation} />
     <View style={styles.container}>
+
       <View style={styles.scrollArea}>
         <ScrollView
           contentContainerStyle={styles.scrollArea_contentContainerStyle}
@@ -72,6 +75,7 @@ function HomeScreen1({ navigation, route }) {
         </ScrollView>
       </View>
     </View>
+  </>
   );
 }
 
