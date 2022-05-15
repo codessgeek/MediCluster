@@ -30,31 +30,9 @@ function ProfilePage(props) {
         >
           <View style={styles.profileRow}>
             <Text style={styles.profile}>Profile</Text>
-            <View style={styles.addUserIcon}>
-              <View style={styles.ellipse4Stack}>
-                <Svg viewBox="0 0 30.43 30" style={styles.ellipse4}>
-                  <Ellipse
-                    stroke="rgba(230, 230, 230,1)"
-                    strokeWidth={0}
-                    fill="rgba(198,198,198,1)"
-                    cx={15}
-                    cy={15}
-                    rx={15}
-                    ry={15}
-                  ></Ellipse>
-                </Svg>
-                <FeatherIcon name="plus" style={styles.icon6}></FeatherIcon>
-              </View>
-            </View>
           </View>
           <View style={styles.userProfile}>
             <View style={styles.rect}>
-              <View style={styles.cancleDoneOption}>
-                <View style={styles.cancelRow}>
-                  <Text style={styles.cancel}>Cancel</Text>
-                  <Text style={styles.done}>Done</Text>
-                </View>
-              </View>
               <View style={styles.profileForm}>
                 <View style={styles.userProfileName}>
                   <Text style={styles.name}>Name :</Text>
@@ -188,57 +166,8 @@ function ProfilePage(props) {
           <View style={styles.scrollArea}>
             <ScrollView
               horizontal={true}
-              contentContainerStyle={styles.scrollArea_contentContainerStyle}
-            >
-               
-                <View style={styles.currentUserProfileComponentRow}>
-                        <View style={styles.currentUserProfileComponent}>
-                        <View style={styles.ellipseStack}>
-                            <Svg viewBox="0 0 60.43 60" style={styles.ellipse}>
-                            <Ellipse
-                                stroke="rgba(230, 230, 230,1)"
-                                strokeWidth={0}
-                                fill="rgba(198,198,198,1)"
-                                cx={30}
-                                cy={30}
-                                rx={30}
-                                ry={30}
-                            ></Ellipse>
-                            </Svg>
-                            <FeatherIcon name="user" style={styles.icon}></FeatherIcon>
-                            <Svg viewBox="0 0 9.86 9.93" style={styles.ellipse2}>
-                            <Ellipse
-                                stroke="rgba(230, 230, 230,1)"
-                                strokeWidth={0}
-                                fill="rgba(49,49,49,1)"
-                                cx={5}
-                                cy={5}
-                                rx={5}
-                                ry={5}
-                            ></Ellipse>
-                            </Svg>
-                        </View>
-                        <Text style={styles.mrRaja}>Mr. Raja</Text>
-                        </View>
-                        <View style={styles.userProfileComponent}>
-                        <View style={styles.ellipse3Stack}>
-                            <Svg viewBox="0 0 60.43 60" style={styles.ellipse3}>
-                            <Ellipse
-                                stroke="rgba(230, 230, 230,1)"
-                                strokeWidth={0}
-                                fill="rgba(198,198,198,1)"
-                                cx={30}
-                                cy={30}
-                                rx={30}
-                                ry={30}
-                            ></Ellipse>
-                            </Svg>
-                            <FeatherIcon name="user" style={styles.icon1}></FeatherIcon>
-                        </View>
-                        <Text style={styles.mrsRaja}>Mrs. Raja</Text>
-                        </View>
+              contentContainerStyle={styles.scrollArea_contentContainerStyle}>
                         <TotalUserComp/>
-                </View>
             </ScrollView>
           </View>
         </View>
@@ -647,82 +576,6 @@ const styles = StyleSheet.create({
     width: 335,
     height: 88,
     flexDirection: "row"
-  },
-  currentUserProfileComponent: {
-    width: 61,
-    height: 76
-  },
-  ellipse: {
-    top: 0,
-    left: 0,
-    width: 60,
-    height: 60,
-    position: "absolute"
-  },
-  icon: {
-    top: 10,
-    left: 10,
-    position: "absolute",
-    color: "rgba(128,128,128,1)",
-    fontSize: 40
-  },
-  ellipse2: {
-    top: 47,
-    left: 47,
-    width: 10,
-    height: 10,
-    position: "absolute"
-  },
-  ellipseStack: {
-    width: 60,
-    height: 60
-  },
-  mrRaja: {
-    fontFamily: "roboto-regular",
-    color: "#121212",
-    height: 16,
-    width: 61,
-    fontSize: 12,
-    textAlign: "center"
-  },
-  userProfileComponent: {
-    width: 61,
-    height: 76,
-    marginLeft: 9
-  },
-  ellipse3: {
-    top: 0,
-    left: 0,
-    width: 60,
-    height: 60,
-    position: "absolute"
-  },
-  icon1: {
-    top: 10,
-    left: 10,
-    position: "absolute",
-    color: "rgba(128,128,128,1)",
-    fontSize: 40
-  },
-  ellipse3Stack: {
-    width: 60,
-    height: 60
-  },
-  mrsRaja: {
-    fontFamily: "roboto-regular",
-    color: "#121212",
-    height: 16,
-    width: 61,
-    fontSize: 12,
-    textAlign: "center"
-  },
-  currentUserProfileComponentRow: {
-    height: 76,
-    flexDirection: "row",
-    flex: 1,
-    marginRight: 193,
-    marginLeft: 11,
-    marginTop: 6
   }
 });
 
