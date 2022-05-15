@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import {
   StyleSheet,
   View,
@@ -10,16 +10,21 @@ import Icon from "react-native-vector-icons/Feather";
 import ImageshelveComp from "../components/ImageContainerScreenComp/ImageshelveComp";
 import globalStyles from "../assets/styles/globleStyles";
 import GalComp from "../components/ImageContainerScreenComp/GalComp";
+import AlbumComp from "../components/ImageContainerScreenComp/AlbumComp";
 
 function GalaryFolderScreen(props) {
+  const [isAlbum, setIsAlbum]=useState(true);
+  const toggle = () =>{
+    setIsAlbum((pre)=>!pre);
+  }
   return (
     <View style={globalStyles.container}>
 
         <View style={styles.gallaryHeader}>
         <View style={styles.albumsRow}>
             <View style={{flexDirection: "row"}}>
-                 <Text style={styles.albums}>Albums</Text>
-                  <Text style={styles.albums}>Gallary</Text>
+                 <Text onPress={()=>toggle()} style={[styles.albums,isAlbum && {textDecorationLine: "underline"}]}>Albums</Text>
+                  <Text onPress={()=>toggle()} style={[styles.albums,!isAlbum && {textDecorationLine: "underline"}]}>Gallary</Text>
             </View>
             <View>
                  <Icon name="plus-circle" style={styles.icon}></Icon>
@@ -29,9 +34,10 @@ function GalaryFolderScreen(props) {
       <View style={globalStyles.scrollArea}>
 
         <ScrollView
-          contentContainerStyle={[globalStyles.scrollArea_contentContainerStyle]}
+          contentContainerStyle={[globalStyles.scrollArea_contentContainerStyle,{justifyContent: "flex-start"}]}
         >
-          <GalComp/>
+          {isAlbum? <GalComp/>:<AlbumComp/>}
+          
         </ScrollView>
       </View>
     </View>
