@@ -1,4 +1,5 @@
-import React, { Component } from "react";
+import React, { useState } from "react";
+import { Component } from "react";
 import {
   StyleSheet,
   View,
@@ -12,9 +13,16 @@ import FeatherIcon from "react-native-vector-icons/Feather";
 import IoniconsIcon from "react-native-vector-icons/Ionicons";
 import MaterialCommunityIconsIcon from "react-native-vector-icons/MaterialCommunityIcons";
 import MaterialIconsIcon from "react-native-vector-icons/MaterialIcons";
+import TotalUserComp from "../components/UserIconComp/TotalUserComp";
+import UserIconComp from "../components/UserIconComp/UserIconComp";
 
 function ProfilePage(props) {
+        const [isUserTag, setIsUserTag]=useState(true);
+        const toggle = () =>{
+            setIsUserTag((pre)=>!pre);
+        }
   return (
+      
     <View style={styles.container}>
       <View style={styles.scrollArea2}>
         <ScrollView
@@ -182,53 +190,55 @@ function ProfilePage(props) {
               horizontal={true}
               contentContainerStyle={styles.scrollArea_contentContainerStyle}
             >
-              <View style={styles.currentUserProfileComponentRow}>
-                <View style={styles.currentUserProfileComponent}>
-                  <View style={styles.ellipseStack}>
-                    <Svg viewBox="0 0 60.43 60" style={styles.ellipse}>
-                      <Ellipse
-                        stroke="rgba(230, 230, 230,1)"
-                        strokeWidth={0}
-                        fill="rgba(198,198,198,1)"
-                        cx={30}
-                        cy={30}
-                        rx={30}
-                        ry={30}
-                      ></Ellipse>
-                    </Svg>
-                    <FeatherIcon name="user" style={styles.icon}></FeatherIcon>
-                    <Svg viewBox="0 0 9.86 9.93" style={styles.ellipse2}>
-                      <Ellipse
-                        stroke="rgba(230, 230, 230,1)"
-                        strokeWidth={0}
-                        fill="rgba(49,49,49,1)"
-                        cx={5}
-                        cy={5}
-                        rx={5}
-                        ry={5}
-                      ></Ellipse>
-                    </Svg>
-                  </View>
-                  <Text style={styles.mrRaja}>Mr. Raja</Text>
+               
+                <View style={styles.currentUserProfileComponentRow}>
+                        <View style={styles.currentUserProfileComponent}>
+                        <View style={styles.ellipseStack}>
+                            <Svg viewBox="0 0 60.43 60" style={styles.ellipse}>
+                            <Ellipse
+                                stroke="rgba(230, 230, 230,1)"
+                                strokeWidth={0}
+                                fill="rgba(198,198,198,1)"
+                                cx={30}
+                                cy={30}
+                                rx={30}
+                                ry={30}
+                            ></Ellipse>
+                            </Svg>
+                            <FeatherIcon name="user" style={styles.icon}></FeatherIcon>
+                            <Svg viewBox="0 0 9.86 9.93" style={styles.ellipse2}>
+                            <Ellipse
+                                stroke="rgba(230, 230, 230,1)"
+                                strokeWidth={0}
+                                fill="rgba(49,49,49,1)"
+                                cx={5}
+                                cy={5}
+                                rx={5}
+                                ry={5}
+                            ></Ellipse>
+                            </Svg>
+                        </View>
+                        <Text style={styles.mrRaja}>Mr. Raja</Text>
+                        </View>
+                        <View style={styles.userProfileComponent}>
+                        <View style={styles.ellipse3Stack}>
+                            <Svg viewBox="0 0 60.43 60" style={styles.ellipse3}>
+                            <Ellipse
+                                stroke="rgba(230, 230, 230,1)"
+                                strokeWidth={0}
+                                fill="rgba(198,198,198,1)"
+                                cx={30}
+                                cy={30}
+                                rx={30}
+                                ry={30}
+                            ></Ellipse>
+                            </Svg>
+                            <FeatherIcon name="user" style={styles.icon1}></FeatherIcon>
+                        </View>
+                        <Text style={styles.mrsRaja}>Mrs. Raja</Text>
+                        </View>
+                        <TotalUserComp/>
                 </View>
-                <View style={styles.userProfileComponent}>
-                  <View style={styles.ellipse3Stack}>
-                    <Svg viewBox="0 0 60.43 60" style={styles.ellipse3}>
-                      <Ellipse
-                        stroke="rgba(230, 230, 230,1)"
-                        strokeWidth={0}
-                        fill="rgba(198,198,198,1)"
-                        cx={30}
-                        cy={30}
-                        rx={30}
-                        ry={30}
-                      ></Ellipse>
-                    </Svg>
-                    <FeatherIcon name="user" style={styles.icon1}></FeatherIcon>
-                  </View>
-                  <Text style={styles.mrsRaja}>Mrs. Raja</Text>
-                </View>
-              </View>
             </ScrollView>
           </View>
         </View>
