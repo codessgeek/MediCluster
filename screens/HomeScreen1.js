@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { StyleSheet, View, ScrollView, Text, TouchableWithoutFeedback } from "react-native";
-import Header from "../components/Header";
+import Header from "../components/Header/Header";
 
 
 function HomeScreen1({ navigation, route }) {
@@ -12,7 +12,13 @@ function HomeScreen1({ navigation, route }) {
     value: false
   });
   return (<>
-    <Header navigation={navigation} />
+    <Header navigation={navigation} title={'Home screen'} optionListObj={{
+      'Move': () => console.log('Move image'),
+      'Copy': () => console.log('copy image'),
+      'Move': () => console.log('Move image'),
+      'Camera': () => console.log('take a new image'),
+      'Retake': () => console.log('retake a new image')
+    }} />
     <View style={styles.container}>
 
       <View style={styles.scrollArea}>
