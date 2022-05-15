@@ -1,6 +1,6 @@
 import React from "react";
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
-import { ImagesStackScreens, NotesStackScreens, ScheduleStackScreens, HomeScreenScreens } from "./StackNavigation";
+import { ImagesStackScreens, DoctContentStackScreens, ScheduleStackScreens, HomeScreenScreens } from "./StackNavigation";
 import Icon from 'react-native-vector-icons/FontAwesome' //home, sticky-note
 import Icon5 from 'react-native-vector-icons/FontAwesome5' // clock
 import IconMtrls from 'react-native-vector-icons/MaterialIcons' // image
@@ -19,7 +19,7 @@ export default function BottomTabNav({ navigation }) {
                         'HomeStack': <Icon name="home" size={focused ? 35 : 30} color={color} />,
                         'Schdule': <Icon5 name="clock" size={focused ? 35 : 30} color={color} />,
                         'Gallery': <IconMtrls name="image" size={focused ? 35 : 30} color={color} />,
-                        'Notes': <Icon name="sticky-note" size={focused ? 35 : 30} color={color} />
+                        'Doctor': <Icon5 name="plus" size={focused ? 35 : 30} color={color} />
                     };
                     return iconName[route.name]
                 },
@@ -34,7 +34,7 @@ export default function BottomTabNav({ navigation }) {
             <Tab.Screen name="HomeStack" component={HomeScreenScreens} options={{ title: 'Home' }} initialParams={{ id: 5 }} />
             <Tab.Screen name="Schdule" component={ScheduleStackScreens} />
             <Tab.Screen name="Gallery" component={ImagesStackScreens} />
-            <Tab.Screen name="Notes" component={NotesStackScreens} />
+            <Tab.Screen name="Doctor" component={DoctContentStackScreens} />
         </Tab.Navigator>
     )
 }
