@@ -1,12 +1,12 @@
 import React from 'react';
 import { View, Text, StyleSheet, TouchableOpacity } from 'react-native';
 
-const ImageshelveComp = () => {
+const ImageshelveComp = ({folder,lastImage, count}) => {
   return (
     
         <View style={styles.photoAlbumComponent}>
               <TouchableOpacity style={styles.button}></TouchableOpacity>
-              <Text style={styles.loremIpsum}>Important Information(10)</Text>
+              <Text style={styles.loremIpsum}>{folder} ({count})</Text>
             </View>
     
   )

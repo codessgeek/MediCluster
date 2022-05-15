@@ -2,12 +2,13 @@ import React from 'react';
 import {View, Text, StyleSheet} from 'react-native';
 import ImageshelveComp from './ImageshelveComp';
 
+const data = {"ramesh":{lastImage:"abc.jpg",count:10},"mahesh":{lastImage:"abc.jpg",count:10},"suresh":{lastImage:"abc.jpg",count:10}};
+
 const GalComp = () => {
   return (
+
     <View style={styles.photoAlbumComponentRow}>
-            <ImageshelveComp/>
-            <ImageshelveComp/>
-            <ImageshelveComp/>
+      {Object.keys(data).map((folder)=> <ImageshelveComp folder={folder} lastImage={data[folder]["lastImage"]} count={data[folder]["count"]}/>)}
     </View>
   )
 }

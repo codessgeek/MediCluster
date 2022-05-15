@@ -12,6 +12,8 @@ import globalStyles from "../assets/styles/globleStyles";
 import GalComp from "../components/ImageContainerScreenComp/GalComp";
 import AlbumComp from "../components/ImageContainerScreenComp/AlbumComp";
 
+
+
 function GalaryFolderScreen(props) {
   const [isAlbum, setIsAlbum]=useState(true);
   const toggle = () =>{
