@@ -1,11 +1,12 @@
-import React from "react";
+import React, { useState } from "react";
 import {
     StyleSheet,
     View,
     ScrollView,
     Text,
     TextInput,
-    TouchableOpacity
+    TouchableOpacity,
+    TouchableWithoutFeedback
 } from "react-native";
 import FeatherIcon from "react-native-vector-icons/Feather";
 import IoniconsIcon from "react-native-vector-icons/Ionicons";
@@ -15,6 +16,7 @@ import MaterialIconsIcon from "react-native-vector-icons/MaterialIcons";
 import Gstyle from '../assets/styles/globleStyles'
 import UserStatusCircle from "../components/userprofilecomp/UserStatusCircle";
 import Checkbox from "../components/userprofilecomp/Checkbox";
+import RadioButton from "../components/userprofilecomp/RadioButton";
 
 function ProfilePage(props) {
     const list = [
@@ -28,6 +30,12 @@ function ProfilePage(props) {
         'jay',
         'jay',
     ]
+
+    const [gender, setGender] = useState(0)
+    const [currentUser, setCurrentUser] = useState(false)
+    function setgen(x) {
+        setGender(x)
+    }
     return (
         <View style={styles.container}>
 
@@ -88,47 +96,25 @@ function ProfilePage(props) {
                                     <View style={styles.group4}>
                                         <Text style={styles.gender}>Gender:</Text>
                                         <View style={styles.group8}>
-                                            <View style={styles.maleOptionGroup}>
-                                                <View style={styles.icon2Row}>
-                                                    <IoniconsIcon
-                                                        name="md-radio-button-on"
-                                                        style={styles.icon2}
-                                                    ></IoniconsIcon>
-                                                    <Text style={styles.male}>Male</Text>
-                                                </View>
-                                            </View>
-                                            <View style={styles.femaleOptionGroup}>
-                                                <View style={styles.icon3Row}>
-                                                    <IoniconsIcon
-                                                        name="md-radio-button-off"
-                                                        style={styles.icon3}
-                                                    ></IoniconsIcon>
-                                                    <Text style={styles.female}>Female</Text>
-                                                </View>
-                                            </View>
-                                            <View style={styles.otherOptionGroup}>
-                                                <View style={styles.icon4Row}>
-                                                    <IoniconsIcon
-                                                        name="md-radio-button-off"
-                                                        style={styles.icon4}
-                                                    ></IoniconsIcon>
-                                                    <Text style={styles.other}>Other</Text>
-                                                </View>
-                                            </View>
+                                            <RadioButton title={"Male"} value={gender} self={0} setgen={setgen} />
+                                            <RadioButton title={"Female"} value={gender} self={1} setgen={setgen} />
+                                            <RadioButton title={"other"} value={gender} self={2} setgen={setgen} />
                                         </View>
                                     </View>
                                 </View>
-                                <View style={styles.displayAsACurrentUserCheckbox}>
-                                    <View style={styles.icon5Row}>
-                                        <MaterialCommunityIconsIcon
-                                            name="checkbox-marked-circle-outline"
-                                            style={styles.icon5}
-                                        ></MaterialCommunityIconsIcon>
-                                        <Text style={styles.displayCurrentUser}>
-                                            Display as a current user
-                                        </Text>
+                                <TouchableWithoutFeedback onPress={() => setCurrentUser((pre) => !pre)}>
+                                    <View style={styles.displayAsACurrentUserCheckbox}>
+                                        <View style={styles.icon5Row} >
+                                            <MaterialCommunityIconsIcon
+                                                name={currentUser ? "checkbox-marked-circle-outline" : "checkbox-blank-circle-outline"}
+                                                style={styles.icon5}
+                                            ></MaterialCommunityIconsIcon>
+                                            <Text style={styles.displayCurrentUser}>
+                                                Display as a current user
+                                            </Text>
+                                        </View>
                                     </View>
-                                </View>
+                                </TouchableWithoutFeedback>
                             </View>
                         </View>
                     </View>
@@ -199,7 +185,7 @@ function ProfilePage(props) {
     );
 }
 
-const styles = StyleSheet.create({
+export const styles = StyleSheet.create({
     container: {
         flex: 1,
         backgroundColor: "rgba(15,15, 15,0)",
@@ -324,11 +310,10 @@ const styles = StyleSheet.create({
         fontSize: 16
     },
     group8: {
-        width: 317,
         height: 33,
         flexDirection: "row",
-        justifyContent: "space-around",
-        marginTop: 6
+        justifyContent: "space-between",
+        marginVertical: 5
     },
     maleOptionGroup: {
         width: 60,
