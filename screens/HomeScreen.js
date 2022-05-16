@@ -20,9 +20,7 @@ export default function HomeScreen({ navigation }) {
         );
     }
 
-    useEffect(() => {
-        createChannel()
-    }, []);
+    
 
 
     return (

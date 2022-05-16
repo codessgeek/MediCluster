@@ -1,0 +1,11 @@
+user 
+
+medicine
+
+time
+
+
+user -medicine  -> schdule
+
+time - medicine - >
+

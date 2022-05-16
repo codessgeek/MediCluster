@@ -1,122 +1,45 @@
 // import modules
-import React from 'react';
-import { NavigationContainer } from '@react-navigation/native';
-import { createNativeStackNavigator } from '@react-navigation/native-stack';
+import React, {useEffect} from 'react';
+import NavBar from './navigation/RootNavigation'
+import PushNotification, { Importance } from 'react-native-push-notification';
 
-// import custom components
-
-// import screens
-import HomeScreen from './screens/HomeScreen';
-
-import ScheduleScreen from './screens/ScheduleScreen';
-import ScheduleGenScreen from './screens/ScheduleGenScreen'
-
-import NotesScreen from './screens/NotesScreen';
-import NotesByFolderScreen from './screens/NotesByFolderScreen'
-import NotesGenScreen from './screens/NotesGenScreen'
-
-import ImageContainerScreen from './screens/ImageContainerScreen';
-import ImageShelfScreen from './screens/ImageShelfScreen'
-import ShowImageScreen from './screens/ShowImageScreen'
-
-import DoctorContactGenScreen from './screens/DoctorContactGenScreen'
-import DoctorContactScreen from './screens/DoctorContactScreen'
-
-import SelectUserScreen from './screens/SelectUserScreen'
-import UserGenScreen from './screens/UserGenScreen'
-
-import OtherAppsScreen from './screens/OtherAppsScreen'
-import AboutUsScreen from './screens/AboutUsScreen';
-
-// import styles
-
-
-const Stack = createNativeStackNavigator();
 
 const App = () => {
-  return (
-    <>
-      <NavigationContainer>
-        <Stack.Navigator initialRouteName="UserGen">
-          <Stack.Screen
-            name="Home"
-            component={HomeScreen}
-            options={{ title: 'Medicluster' }}
-          />
-          <Stack.Screen
-            name="Schedule"
-            component={ScheduleScreen}
-            options={{ title: 'My Schedules' }}
-          />
-          <Stack.Screen
-            name="ScheduleGen"
-            component={ScheduleGenScreen}
-            options={{ title: 'Add Schedules' }}
-          />
+  const createChannel = () => {
 
-          <Stack.Screen
-            name="Notes"
-            component={NotesScreen}
-            options={{ title: 'My Notes' }}
-          />
-          <Stack.Screen
-            name="NotesGen"
-            component={NotesGenScreen}
-            options={{ title: 'Add Notes' }}
-          />
-          <Stack.Screen
-            name="NotesByFolder"
-            component={NotesByFolderScreen}
-            options={{ title: 'My Notes' }}
-          />
-          <Stack.Screen
-            name="ImageContainer"
-            component={ImageContainerScreen}
-            options={{ title: 'Gallary' }}
-          />
-          <Stack.Screen
-            name="ImageShelf"
-            component={ImageShelfScreen}
-            options={{ title: 'Gallary' }}
-          />
-          <Stack.Screen
-            name="showImage"
-            component={ShowImageScreen}
-            options={{ title: 'Gallary' }}
-          />
-          <Stack.Screen
-            name="SelectUser"
-            component={SelectUserScreen}
-            options={{ title: 'users' }}
-          />
-          <Stack.Screen
-            name="UserGen"
-            component={UserGenScreen}
-            options={{ title: 'Create User' }}
-          />
-          <Stack.Screen
-            name="DoctorContactGen"
-            component={DoctorContactGenScreen}
-            options={{ title: 'Add Contect' }}
-          />
-          <Stack.Screen
-            name="DoctorContact"
-            component={DoctorContactScreen}
-            options={{ title: 'Doctor Contect' }}
-          />
-          <Stack.Screen
-            name="AboutUs"
-            component={AboutUsScreen}
-            options={{ title: 'About us' }}
-          />
-          <Stack.Screen
-            name="OtherApps"
-            component={OtherAppsScreen}
-            options={{ title: 'Over apps' }}
-          />
-        </Stack.Navigator>
-      </NavigationContainer>
-    </>
+    PushNotification.createChannel(
+      {
+        channelId: "channel-id", // (required)
+        channelName: "My channel", // (required)
+        //channelDescription: "A channel to categorise your notifications", // (optional) default: undefined.
+        //playSound: false, // (optional) default: true
+        //soundName: "default", // (optional) See `soundName` parameter of `localNotification` function
+        //importance: Importance.HIGH, // (optional) default: Importance.HIGH. Int value of the Android notification importance
+        //vibrate: true, // (optional) default: true. Creates the default vibration pattern if true.
+      },
+      (created) => console.log(`createChannel returned '${created}'`) // (optional) callback returns whether the channel was created, false means it already existed.
+    );
+  }
+
+  useEffect(() => {
+    createChannel()
+  }, []);
+
+  /*
+    PushNotification.cancelAllLocalNotifications({ id: 1 });
+    PushNotification.localNotification({
+        channelId: 'channel-id',
+        title: 'redirect to selectuser',
+        message: 'now you are in select user page',
+        bigText: 'As clicking the button Go to SelectUser, you are redirect to select user page',
+        color: 'red',
+        id: 1
+    })
+    return navigation.navigate('SelectUser')
+  */
+
+  return (
+    <NavBar />
   );
 };
 
