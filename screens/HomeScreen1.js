@@ -12,7 +12,7 @@ function HomeScreen1({ navigation, route }) {
     value: false
   });
   return (<>
-    <Header navigation={navigation} title={'Home screen'} />
+    <Header navigation={navigation} title={'Home screen'} optionListObj={{'User profile': () => navigation.navigate("User")}} navigate={navigation} />
     <View style={styles.container}>
 
       <View style={styles.scrollArea}>
@@ -60,7 +60,7 @@ function HomeScreen1({ navigation, route }) {
             <View style={{ flexDirection: "row", width: '100%' }}>
               <TouchableWithoutFeedback style={{ flexGrow: 1 }} onPress={() => { navigation.navigate('Docter') }}>
                 <View style={{ flexGrow: 1, margin: 2, padding: 10, backgroundColor: 'red' }}>
-                  <Text style={{ color: 'white', fontWeight: '600', fontSize: 20 }}>Docotor contect</Text>
+                  <Text style={{ color: 'white', fontWeight: '600', fontSize: 20 }}>Docter's contact</Text>
                 </View>
               </TouchableWithoutFeedback>
               <TouchableWithoutFeedback style={{ flexGrow: 1 }} onPress={() => { navigation.navigate("User") }}>

@@ -17,7 +17,7 @@ export default function BottomTabNav({ navigation }) {
                 tabBarIcon: ({ focused, color, size }) => {
                     let iconName = {
                         'HomeStack': <Icon name="home" size={focused ? 35 : 30} color={color} />,
-                        'Schdule': <Icon5 name="clock" size={focused ? 35 : 30} color={color} />,
+                        'Schedule': <Icon5 name="clock" size={focused ? 35 : 30} color={color} />,
                         'Gallery': <IconMtrls name="image" size={focused ? 35 : 30} color={color} />,
                         'Care': <Icon5 name="plus" size={focused ? 35 : 30} color={color} />
                     };
@@ -29,10 +29,9 @@ export default function BottomTabNav({ navigation }) {
                 tabBarHideOnKeyboard: true,
                 tabBarStyle: { height: 70, padding: 3 },
                 tabBarLabelStyle: { fontSize: 15, paddingVertical: 5 }
-
             })} >
             <Tab.Screen name="HomeStack" component={HomeScreenScreens} options={{ title: 'Home' }} initialParams={{ id: 5 }} />
-            <Tab.Screen name="Schdule" component={ScheduleStackScreens} />
+            <Tab.Screen name="Schedule" component={ScheduleStackScreens} />
             <Tab.Screen name="Gallery" component={ImagesStackScreens} />
             <Tab.Screen name="Care" component={DoctContentStackScreens} />
         </Tab.Navigator>

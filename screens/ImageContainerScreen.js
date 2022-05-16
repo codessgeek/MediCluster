@@ -20,6 +20,7 @@ function GalaryFolderScreen({ navigation }) {
   const toggle = () => {
     setIsAlbum((pre) => !pre);
   }
+
   return (<>
     <Header title="Photos" />
     <View style={globalStyles.container}>
@@ -28,7 +29,7 @@ function GalaryFolderScreen({ navigation }) {
         <View style={styles.albumsRow}>
           <View style={{ flexDirection: "row" }}>
             <Text onPress={() => toggle()} style={[styles.albums, isAlbum && { textDecorationLine: "underline" }]}>Albums</Text>
-            <Text onPress={() => toggle()} style={[styles.albums, !isAlbum && { textDecorationLine: "underline" }]}>Gallary</Text>
+            <Text onPress={() => toggle()} style={[styles.albums, !isAlbum && { textDecorationLine: "underline" }]}>Gallery</Text>
           </View>
           <View>
             <Icon name="plus-circle" style={styles.icon} />

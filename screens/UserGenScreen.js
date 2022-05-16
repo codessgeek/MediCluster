@@ -17,8 +17,12 @@ import Gstyle from '../assets/styles/globleStyles'
 import UserStatusCircle from "../components/userprofilecomp/UserStatusCircle";
 import Checkbox from "../components/userprofilecomp/Checkbox";
 import RadioButton from "../components/userprofilecomp/RadioButton";
+import Header from "../components/Header/Header";
+import Controler from '../components/Controlers';
+import TextField from "../components/AddDoctorscontentComp/TextField";
 
-function ProfilePage(props) {
+
+function ProfilePage({navigation}) {
     const list = [
         'jay',
         'jay',
@@ -36,7 +40,8 @@ function ProfilePage(props) {
     function setgen(x) {
         setGender(x)
     }
-    return (
+    return (<>
+        <Header title={"User Profile"} back navigation={navigation}/>
         <View style={styles.container}>
 
             <View style={styles.horizontalScrollGroup}>
@@ -67,31 +72,12 @@ function ProfilePage(props) {
 
                     <View style={styles.userProfile}>
                         <View style={styles.rect}>
-                            <View style={styles.cancleDoneOption}>
-                                <View style={styles.cancelRow}>
-                                    <Text style={styles.cancel}>Cancel</Text>
-                                    <Text style={styles.done}>Done</Text>
-                                </View>
-                            </View>
+                            <Controler ctrls={['Cancle',,'Done']} Pfun={() => console.log('cancle')} Ffun={() => console.log('Done')}/>
+                            
                             <View style={styles.profileForm}>
-                                <View style={styles.userProfileName}>
-                                    <Text style={styles.name}>Name :</Text>
-                                    <TextInput
-                                        placeholder="name"
-                                        clearButtonMode="always"
-                                        autoCapitalize="words"
-                                        style={styles.placeholder}
-                                    ></TextInput>
-                                </View>
-                                <View style={styles.userProfileBirthday}>
-                                    <Text style={styles.birthday}>Birthday :</Text>
-                                    <TextInput
-                                        placeholder="15 - 10 - 2015"
-                                        clearButtonMode="always"
-                                        autoCapitalize="words"
-                                        style={styles.placeholder1}
-                                    ></TextInput>
-                                </View>
+                                <TextField title={"Name"} pholder={"your name"} corr={true}/>
+                                <TextField title={"15 - 10 - 2015"} pholder={"your name"} corr={true}/>
+                                
                                 <View style={styles.userProfileGender}>
                                     <View style={styles.group4}>
                                         <Text style={styles.gender}>Gender:</Text>
@@ -181,7 +167,7 @@ function ProfilePage(props) {
                 </ScrollView>
             </View>
         </View>
-
+</>
     );
 }
 
@@ -256,11 +242,8 @@ export const styles = StyleSheet.create({
         justifyContent: 'space-between'
     },
     profileForm: {
-        width: 317,
-        height: 259,
+        padding: 5,
         justifyContent: "space-around",
-        marginTop: 13,
-        marginLeft: 10
     },
     userProfileName: {
         width: 317,
@@ -313,7 +296,9 @@ export const styles = StyleSheet.create({
         height: 33,
         flexDirection: "row",
         justifyContent: "space-between",
-        marginVertical: 5
+        marginVertical: 5,
+
+        margin: 5
     },
     maleOptionGroup: {
         width: 60,
